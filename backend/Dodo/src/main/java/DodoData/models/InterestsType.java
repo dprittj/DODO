@@ -1,10 +1,13 @@
 package DodoData.models;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@EntityScan
 public class InterestsType {
 
     @Id

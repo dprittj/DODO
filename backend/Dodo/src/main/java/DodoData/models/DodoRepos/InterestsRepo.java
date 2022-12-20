@@ -1,4 +1,4 @@
-package DodoRepos;
+package DodoData.models.DodoRepos;
 
 import DodoData.models.InterestsType;
 import org.springframework.data.repository.CrudRepository;
