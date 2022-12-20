@@ -1,0 +1,79 @@
+
+<div class="layout-box">
+
+    <!--displays the top "Dodo" header bar-->
+
+    <div class="top-bar">
+        <h1>DoDo</h1>
+        
+    </div>
+
+    <!--displays the navigation bar-->
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                <p> Discover Dodo</p>
+                <i class="fa-solid fa-crow"></i>
+              </a>
+
+              <div class="navbar-dropdown">
+
+                <a class="navbar-item">
+                  Home Page
+                </a>
+
+                <hr class="navbar-divider">
+
+                <a class="navbar-item">
+                  My Nest (Profile)
+                </a>
+
+                <hr class="navbar-divider">
+
+                <a class="navbar-item">
+                  Itineraries
+                </a>
+
+                <hr class="navbar-divider">
+
+                <a class="navbar-item">
+                  Generate a Dodo
+                </a>
+
+                <hr class="navbar-divider">
+
+                <a class="navbar-item">
+                 Submit a Point of Interest
+                </a>
+
+                <hr class="navbar-divider">
+
+                <a class="navbar-item">
+                  Log Out
+                </a>
+
+
+              </div>
+            </div>
+          </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!--displays the main page content-->
+   
+    <div class="page-content">
+        <router-outlet></router-outlet>
+    </div>
+    
+    
+</div>
