@@ -6,34 +6,36 @@
         <h1 class="has-text-centered">
             Log In:
         </h1>
-
     </div>
 
-    <div class="username-container">
-    <div class="field">
-        <p class="control has-icons-left has-icons-right">
-          <input class="input" type="text" placeholder="Username">
-          <span class="icon is-small is-left">
-            <i class="fa-solid fa-crow"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </p>
-      </div>
-    </div>
-
-    <div class="password-container">
+    <form #userForm="ngForm" (ngSubmit)="signIn(userForm)">
+      <div class="username-container">
         <div class="field">
-            <p class="control has-icons-left">
-              <input class="input" type="password" placeholder="Password">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="text" placeholder="Username">
               <span class="icon is-small is-left">
-                <i class="fas fa-lock"></i>
+                <i class="fa-solid fa-crow"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
               </span>
             </p>
           </div>
-    </div>
-
- <button class="button is-primary" (click)="signIn()" routerLink="home">Sign in</button>
-
+        </div>
+    
+        <div class="password-container">
+            <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+        </div>
+    
+     <button class="button is-primary" id="submitButton" type="submit" (click)="signIn(userForm)" routerLink="home">Sign in</button>
+    
+    </form>
+   
 </div>
