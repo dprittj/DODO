@@ -1,0 +1,56 @@
+@import '../../../main-styles.scss';
+
+//main container holds the body of the full page
+.main-container {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 500px;
+
+    margin: auto;
+
+    padding-top: 50px;
+
+    //displays the "Sign Up:" text box
+    .signup-text-box {
+
+        height: 68px;
+        background: $purple;
+        margin-bottom: 50px;
+
+
+
+        box-shadow: 0px 0px 10px 0px rgba(black, 0.15);
+
+        h1 {
+            color: white;
+            font-size: 50px;
+            
+        }
+    }
+
+    //displays the "email" text box
+    .email-container {
+        margin-bottom: 25px;
+    }
+
+    //displays the "username" text box
+    .username-container {
+        margin-bottom: 25px;
+    }
+    //displays the "password" text box
+
+    .password-container {
+        margin-bottom: 25px;
+    }
+
+    .verify-password-container {
+        margin-bottom: 50px;
+        
+    }
+
+
+}
+#submitButton {
+    width: 500px;
+}

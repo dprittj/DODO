@@ -1,0 +1,65 @@
+
+<div class="main-container">
+
+    <div class="signup-text-box">
+        <h1 class="has-text-centered">
+            Sign Up:
+        </h1>
+    </div>
+
+    <form #userForm="ngForm" (ngSubmit)="signUp()">
+
+        <div class="email-container">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="email" placeholder="Email" name="email" [(ngModel)]="form.email">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </p>
+        </div>
+        
+      <div class="username-container">
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="form.username" >
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-crow"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </p>
+          </div>
+        </div>
+    
+        <div class="password-container">
+            <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="form.password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+        </div>
+        
+        <div class="verify-password-container">
+            <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Verify Password" name="verify-password" [(ngModel)]="form.verifyPassword">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+        </div> 
+    
+     <button class="button is-primary" id="submitButton" type="submit">Sign Up</button>
+    
+    </form> 
+   
+</div>
+
