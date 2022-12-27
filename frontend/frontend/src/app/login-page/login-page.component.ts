@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -12,4 +13,8 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  signIn(form: NgForm) {
+    //authenticate username and hashkey 
+
+  }
 }
