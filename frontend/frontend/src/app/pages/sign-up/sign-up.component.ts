@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
     const {email, username, password, verifyPassword} = this.form;
     if (password == verifyPassword) {
       console.log(this.form);
-    this._route.navigateByUrl('/home'); // switch to '/buildnest once I can pull Zach's commit
+    this._route.navigateByUrl('/buildnest'); 
     }
   }
 }
