@@ -8,11 +8,11 @@
         </h1>
     </div>
 
-    <form #userForm="ngForm" (ngSubmit)="signIn(userForm)">
+    <form #userForm="ngForm" (ngSubmit)="signIn()">
       <div class="username-container">
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-              <input class="input" type="text" placeholder="Username">
+              <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="form.username" >
               <span class="icon is-small is-left">
                 <i class="fa-solid fa-crow"></i>
               </span>
@@ -26,7 +26,7 @@
         <div class="password-container">
             <div class="field">
                 <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Password">
+                  <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="form.password">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
@@ -34,7 +34,7 @@
               </div>
         </div>
     
-     <button class="button is-primary" id="submitButton" type="submit" (click)="signIn(userForm)" routerLink="home">Sign in</button>
+     <button class="button is-primary" name type="submit">Sign in</button>
     
     </form>
    

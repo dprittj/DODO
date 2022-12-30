@@ -1,4 +1,4 @@
-@import '../../main-styles.scss';
+@import '../../../main-styles.scss';
 
 //main container holds the body of the full page
 .main-container {
@@ -11,8 +11,8 @@
 
     padding-top: 50px;
 
-    //displays the "Log In: text box
-    .login-text-box {
+    //displays the "Sign Up:" text box
+    .signup-text-box {
 
         height: 68px;
         background: $purple;
@@ -28,6 +28,12 @@
             
         }
     }
+
+    //displays the "email" text box
+    .email-container {
+        margin-bottom: 25px;
+    }
+
     //displays the "username" text box
     .username-container {
         margin-bottom: 25px;
@@ -35,7 +41,12 @@
     //displays the "password" text box
 
     .password-container {
+        margin-bottom: 25px;
+    }
+
+    .verify-password-container {
         margin-bottom: 50px;
+        
     }
 
 
@@ -43,4 +54,3 @@
 #submitButton {
     width: 500px;
 }
-
