@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -22,6 +23,9 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //signUp() takes the form fields of email, username, password, and verifyPassword and ties them to the 
+  // ngForm element, then reroutes to /buildnest
+
   signUp(): void  {
     const {email, username, password, verifyPassword} = this.form;
     if (password == verifyPassword) {
@@ -33,5 +37,6 @@ export class SignUpComponent implements OnInit {
       )
       this._route.navigateByUrl('/buildnest'); 
     }
+
   }
 }
