@@ -1,6 +1,9 @@
 package DodoData.controllers;
 
-import DodoData.models.DodoRepos.InterestsRepo;
+import DodoData.models.DodoRepos.InterestsTypeRepository;
+import DodoData.models.DodoRepos.ProfileRepository;
+import DodoData.models.DodoRepos.UserInfoRepository;
+import DodoData.models.InterestsType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
@@ -13,23 +16,37 @@ import java.util.List;
 import static DodoData.models.InterestsType.userValue;
 
 @Controller
-@ComponentScan
-public class Interests {
+//@ComponentScan
+public class InterestControl {
 
     @Autowired
-    private InterestsRepo interestsRepo;
+    private ProfileRepository profileRepository;
+
+    @Autowired
+    private InterestsTypeRepository interestsTypeRepository;
+
+    @Autowired
+    private UserInfoRepository userInfoRepository;
+
+    private List<InterestsType> userChoices;
+
+    //GetMapping()
+    public String showUserChoices(Model model) {
+        userChoices = InterestsTypeRepository.findByUserValueTrue(true);
+        model.addAttribute("savedInterests", userChoices);
+        return "MyNest";
+    }
 
 //    @GetMapping()
     public String interestOptions(Model model){
-
-        model.addAttribute("interests", interestsRepo.findAll());
+        model.addAttribute("interests", interestsTypeRepository.findAll());
         return "redirect";
     }
 
 //    @GetMapping()
     public String interestChoices(){
         List<Iterable> choices = new ArrayList<>();
-        choices.add(interestsRepo.findAll());
+        choices.add(interestsTypeRepository.findAll());
 
         List<Iterable> profileInterests = new ArrayList<>();
 
