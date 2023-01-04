@@ -1,6 +1,8 @@
 package DodoData.controllers;
 
 
+import DodoData.models.DodoRepos.InterestsTypeRepository;
+import DodoData.models.DodoRepos.ProfileRepository;
 import DodoData.models.DodoRepos.UserRepository;
 import DodoData.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+
+    @Autowired
+    private ProfileRepository profileRepository;
+
+    @Autowired
+    private InterestsTypeRepository interestsTypeRepository;
 
     //uses JPA userRepository to handle any CRUD operations on the data
     @Autowired

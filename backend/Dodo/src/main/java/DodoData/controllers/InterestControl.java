@@ -2,7 +2,7 @@ package DodoData.controllers;
 
 import DodoData.models.DodoRepos.InterestsTypeRepository;
 import DodoData.models.DodoRepos.ProfileRepository;
-import DodoData.models.DodoRepos.UserInfoRepository;
+import DodoData.models.DodoRepos.UserRepository;
 import DodoData.models.InterestsType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -26,7 +26,7 @@ public class InterestControl {
     private InterestsTypeRepository interestsTypeRepository;
 
     @Autowired
-    private UserInfoRepository userInfoRepository;
+    private UserRepository userRepository;
 
     private List<InterestsType> userChoices;
 

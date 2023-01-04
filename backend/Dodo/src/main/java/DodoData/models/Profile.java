@@ -10,11 +10,11 @@ public class Profile extends IdAbstract{
     private String email;
 
     @OneToOne
-    private UserInfo thisUser;
+    private User thisUser;
 
     //Constructors
 
-    public Profile(int location, String email, UserInfo thisUser) {
+    public Profile(int location, String email, User thisUser) {
         this.location = location;
         this.email = email;
         this.thisUser = thisUser;
@@ -41,11 +41,11 @@ public class Profile extends IdAbstract{
         this.email = email;
     }
 
-    public UserInfo getThisUser() {
+    public User getThisUser() {
         return thisUser;
     }
 
-    public void setThisUser(UserInfo thisUser) {
+    public void setThisUser(User thisUser) {
         this.thisUser = thisUser;
     }
 }

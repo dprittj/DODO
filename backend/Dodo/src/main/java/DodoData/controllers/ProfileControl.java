@@ -2,7 +2,7 @@ package DodoData.controllers;
 
 import DodoData.models.DodoRepos.InterestsTypeRepository;
 import DodoData.models.DodoRepos.ProfileRepository;
-import DodoData.models.DodoRepos.UserInfoRepository;
+import DodoData.models.DodoRepos.UserRepository;
 import DodoData.models.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ public class ProfileControl {
     private InterestsTypeRepository interestsTypeRepository;
 
     @Autowired
-    private UserInfoRepository userInfoRepository;
+    private UserRepository UserRepository;
 
     @GetMapping("buildnest")
     public String displayBuildNest(Model model){
