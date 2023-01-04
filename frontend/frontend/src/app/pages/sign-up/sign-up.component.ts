@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,7 +17,7 @@ export class SignUpComponent implements OnInit {
     verifyPassword: null
   };
 
-  constructor(private _route: Router) { }
+  constructor(private _route: Router, private _service: UserService) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +26,12 @@ export class SignUpComponent implements OnInit {
     const {email, username, password, verifyPassword} = this.form;
     if (password == verifyPassword) {
       console.log(this.form);
-    this._route.navigateByUrl('/buildnest'); 
+      this._service.createNewUser(username, password).subscribe(
+        data=>{
+          console.log("New User Created");
+        }
+      )
+      this._route.navigateByUrl('/buildnest'); 
     }
   }
 }
