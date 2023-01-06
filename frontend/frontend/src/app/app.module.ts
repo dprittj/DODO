@@ -24,7 +24,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     BuildProfileComponent,
     BuildProfileComponent,
     WelcomePageComponent,
-    UserProfileComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
