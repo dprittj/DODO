@@ -12,6 +12,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     BuildProfileComponent,
     BuildProfileComponent,
     WelcomePageComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
