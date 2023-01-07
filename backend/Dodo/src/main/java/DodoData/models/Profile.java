@@ -14,7 +14,7 @@ public class Profile extends IdAbstract{
 
     //Constructors
 
-    public Profile(int location, String email, User thisUser) {
+    public Profile(int location, String email, User thisUser ) {
         this.location = location;
         this.email = email;
         this.thisUser = thisUser;
@@ -41,11 +41,9 @@ public class Profile extends IdAbstract{
         this.email = email;
     }
 
-    public User getThisUser() {
-        return thisUser;
-    }
+    public User getThisUser() {return thisUser;}
 
-    public void setThisUser(User thisUser) {
-        this.thisUser = thisUser;
-    }
+    public void setThisUser(User thisUser) { this.thisUser = thisUser;}
+
+
 }
