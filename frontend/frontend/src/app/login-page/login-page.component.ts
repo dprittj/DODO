@@ -29,6 +29,6 @@ export class LoginPageComponent implements OnInit {
         console.log("Successfully logged in");
       }
     )
-    this._route.navigateByUrl('/home');
+    this._route.navigateByUrl('/mynest');
   }
 }
