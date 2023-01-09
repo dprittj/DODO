@@ -16,10 +16,13 @@ import java.util.Date;
 @Component
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
-    @Value("${org.launchcode.jwtSecret}")
+
+    @Value("${dodo.app.jwtSecret}")
     private static String jwtSecret;
-    @Value("${org.launchcode.jwtExpirationMs}")
+
+    @Value("${dodo.app.jwtExpirationMs}")
     private static int jwtExpirationMs;
+
     public static String generateJwtToken(Authentication authentication) {
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
         return Jwts.builder()
@@ -29,9 +32,11 @@ public class JwtUtils {
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }
+
     public String getUserNameFromJwtToken(String token) {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
     }
+
     public boolean validateJwtToken(String authToken) {
         try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);

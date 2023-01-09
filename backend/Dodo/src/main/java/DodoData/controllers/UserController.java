@@ -20,9 +20,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -47,7 +49,6 @@ public class UserController {
     @Autowired
     private InterestsTypeRepository interestsTypeRepository;
 
-    //uses JPA userRepository to handle any CRUD operations on the data
     @Autowired
     UserRepository userRepository;
 
@@ -55,15 +56,18 @@ public class UserController {
     RoleRepository roleRepository;
 
     @Autowired
+    PasswordEncoder encoder;
+
+    @Autowired
     JwtUtils jwtUtils;
 
     //registerUser takes in the newUser and saves it in the database
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@RequestBody RegisterUserDTO newUser) {
+    public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterUserDTO newUser) {
         if (userRepository.existsByUsername(newUser.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Username is already taken!"));
+                    .body(new MessageResponse("Error: This username is already taken!"));
         }
         User user = new User(newUser.getUsername(), newUser.getPassword());
         Set<Role> roles = new HashSet<>();
@@ -76,7 +80,7 @@ public class UserController {
 
     //adding handler method below, starting draft commented out above. Below attempting logic to use LoginFormDTO, still needs to be cleaned up.
     @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@RequestBody LoginFormDTO existingUser){
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginFormDTO existingUser){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(existingUser.getUsername(), existingUser.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);

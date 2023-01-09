@@ -87,6 +87,7 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return false;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
