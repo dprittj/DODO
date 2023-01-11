@@ -30,9 +30,8 @@ public class ProfileControl {
 
         return "buildnest";
     }
+//on sign up, needs to create a profile object for the user
 
-    //@PostMapping("build_profile_page")
-    //public String saveUserInterests(@RequestBody ){
 
 
 }
