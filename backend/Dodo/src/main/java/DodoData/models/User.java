@@ -1,5 +1,6 @@
 package DodoData.models;
 
+import jdk.jfr.DataAmount;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;

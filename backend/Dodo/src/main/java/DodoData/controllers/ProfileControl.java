@@ -31,5 +31,8 @@ public class ProfileControl {
         return "buildnest";
     }
 
+    //@PostMapping("build_profile_page")
+    //public String saveUserInterests(@RequestBody ){
+
 
 }
