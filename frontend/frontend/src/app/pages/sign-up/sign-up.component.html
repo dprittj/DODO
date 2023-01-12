@@ -15,9 +15,6 @@
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
             </p>
         </div>
         
@@ -28,12 +25,21 @@
               <span class="icon is-small is-left">
                 <i class="fa-solid fa-crow"></i>
               </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
+
             </p>
           </div>
         </div>
+
+        <div class="location-container">
+          <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Location" name="location" [(ngModel)]="form.location" required class="input">
+                <span class="icon is-small is-left">
+                  <i class="fa-solid fa-location-dot"></i>
+                </span>
+              </p>
+            </div>
+          </div>
     
         <div class="password-container">
             <div class="field">
@@ -45,6 +51,8 @@
                 </p>
               </div>
         </div>
+
+        
         
         <div class="verify-password-container">
             <div class="field">
