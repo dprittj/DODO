@@ -69,16 +69,21 @@ public class UserController {
                     .badRequest()
                     .body(new MessageResponse("Error: This username is already taken!"));
         }
-        User user = new User(newUser.getUsername(), newUser.getPassword());
+        if (userRepository.existsByEmail(newUser.getEmail())) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error: This email is already in use!"));
+        }
+        User user = new User(newUser.getEmail(), newUser.getUsername(), newUser.getLocation(), newUser.getPassword());
         Set<Role> roles = new HashSet<>();
         Role userRole = roleRepository.findByName(ERole.ROLE_USER);
         roles.add(userRole);
         user.setRoles(roles);
         userRepository.save(user);
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+
     }
 
-    //adding handler method below, starting draft commented out above. Below attempting logic to use LoginFormDTO, still needs to be cleaned up.
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginFormDTO existingUser){
         Authentication authentication = authenticationManager.authenticate(
