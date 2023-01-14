@@ -16,7 +16,7 @@ export class UserService {
 
   //API links below determine which page the restAPI is pulling information from
  API = 'http://localhost:8080/api/';
- API_2 = 'http://localhost:8080/api/signup'; 
+//  API_2 = 'http://localhost:8080/api/signup'; 
 
 //  user: User = new User;
 
@@ -25,7 +25,7 @@ export class UserService {
   //createNewUser takes in a username and password and hands it to the backend 
   // to store in the database
   createNewUser(email: String, username: String, location: String, password: String): Observable<any>{
-    return this._http.post(this.API_2, {
+    return this._http.post(this.API + "signup", {
       email, 
       username,
       location,
@@ -38,7 +38,7 @@ export class UserService {
   getUserByUsername(username: String, password: String): Observable<any>{
     return this._http.post(this.API + "login", {
       username,
-      password
+      password,
     }, httpOptions)
   }
   

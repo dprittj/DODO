@@ -30,12 +30,12 @@ export class BuildProfileComponent implements OnInit {
 
   }
 
+  isLoggedIn = false;
+
   constructor(private _route: Router) { }
 
   ngOnInit(): void {
-    //is user logged in?
-    // if not route to log in page
-    //example in occurence.component.ts
+
   }
 
   buildProfile(): void {

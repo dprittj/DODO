@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
         let authreq = req;
         const token = this.token.getToken();
         if( token != null) {
-            authreq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'bearer' + token)});
+            authreq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token)});
         }
         return next.handle(authreq);
         }
