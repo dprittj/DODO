@@ -11,12 +11,9 @@
 
         <div class="email-container">
             <p class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email" name="email" [(ngModel)]="form.email">
+              <input class="input" type="email" placeholder="Email" name="email" [(ngModel)]="form.email" required class="input">
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
               </span>
             </p>
         </div>
@@ -24,40 +21,51 @@
       <div class="username-container">
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-              <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="form.username" >
+              <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="form.username" required class="input">
               <span class="icon is-small is-left">
                 <i class="fa-solid fa-crow"></i>
               </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
+
             </p>
           </div>
         </div>
+
+        <div class="location-container">
+          <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Location" name="location" [(ngModel)]="form.location" required class="input">
+                <span class="icon is-small is-left">
+                  <i class="fa-solid fa-location-dot"></i>
+                </span>
+              </p>
+            </div>
+          </div>
     
         <div class="password-container">
             <div class="field">
                 <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="form.password">
+                  <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="form.password" required class="input">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
                 </p>
               </div>
         </div>
+
+        
         
         <div class="verify-password-container">
             <div class="field">
                 <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Verify Password" name="verify-password" [(ngModel)]="form.verifyPassword">
+                  <input class="input" type="password" placeholder="Verify Password" name="verify-password" [(ngModel)]="form.verifyPassword" required class="input">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
                 </p>
               </div>
         </div> 
-    
-     <button class="button is-primary" id="submitButton" type="submit">Sign Up</button>
+                <!--the "save button is disables when the form is not valid!"-->
+     <button class="button is-primary" id="submitButton" type="submit" [disabled]="!userForm.valid">Sign Up</button>
     
     </form> 
    

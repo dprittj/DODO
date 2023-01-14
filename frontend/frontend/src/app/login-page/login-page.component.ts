@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../shared/services/token-storage.service';
 import { UserService } from '../shared/services/user.service';
 
 @Component({
@@ -14,10 +15,13 @@ export class LoginPageComponent implements OnInit {
     username: null,
     password: null
   };
+  isLoggedIn = false;
+  roles: string[] = [];
 
-  constructor(private _route: Router, private _service: UserService) { }
+  constructor(private _route: Router, private _service: UserService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
+  
   }
 
   signIn(): void  {
@@ -26,9 +30,14 @@ export class LoginPageComponent implements OnInit {
     console.log(this.form);
     this._service.getUserByUsername(username, password).subscribe(
       data=>{
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getUser().roles;
+
         console.log("Successfully logged in");
       }
     )
-    this._route.navigateByUrl('/home');
+    this._route.navigateByUrl('/mynest');
   }
 }

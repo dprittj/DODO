@@ -27,9 +27,12 @@ export class BuildProfileComponent implements OnInit {
     health_wellness: null
   }
 
+  isLoggedIn = false;
+
   constructor(private _route: Router) { }
 
   ngOnInit(): void {
+
   }
 
   buildProfile(): void {
