@@ -13,7 +13,7 @@ const httpOptions = {
 
 export class InterestsService {
 
-    API = 'http://localhost:8080/api';
+    API = 'http://localhost:8080/api/';
 
     constructor(private _http: HttpClient) {}
 
@@ -32,7 +32,7 @@ export class InterestsService {
         books: Boolean,
         movies: Boolean, 
         health_wellness: Boolean): Observable<any>{
-        return this._http.post(this.API, {
+        return this._http.post(this.API + "buildnest", {
             music,
             outdoors,
             gaming,

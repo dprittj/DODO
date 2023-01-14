@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { InterestsService } from 'src/app/shared/services/interests.service';
 
 @Component({
   selector: 'app-build-profile',
@@ -29,7 +30,7 @@ export class BuildProfileComponent implements OnInit {
 
   isLoggedIn = false;
 
-  constructor(private _route: Router) { }
+  constructor(private _route: Router, private _service: InterestsService) { }
 
   ngOnInit(): void {
 
@@ -54,8 +55,29 @@ export class BuildProfileComponent implements OnInit {
       health_wellness 
     } = this.form;
     console.log(this.form);
+    this._service.saveInterests(music,
+      outdoors,
+      gaming,
+      nature,
+      art,
+      sports,
+      nightlife,
+      food,
+      history,
+      science_technology,
+      culture,
+      fashion,
+      books,
+      movies, 
+      health_wellness).subscribe(
+      data=>{
+        console.log("Interests Saved");
+        console.log(data);
+        this._route.navigateByUrl('mynest');
+      }
+    );
 
-    this._route.navigateByUrl('/mynest');
+    
   }
 
 }
