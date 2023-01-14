@@ -22,7 +22,6 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     MainLayoutComponent,
     SignUpComponent,
     BuildProfileComponent,
-    BuildProfileComponent,
     WelcomePageComponent,
     UserProfileComponent
   ],
