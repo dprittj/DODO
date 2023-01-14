@@ -10,24 +10,21 @@ import { Router } from '@angular/router';
 export class BuildProfileComponent implements OnInit {
 
   form: any = {
-    // username: null,
-    location: null,
     music: null,
-    art: null,
     outdoors: null,
     gaming: null,
     nature: null,
-    painting: null,
-    photography: null,
+    art: null,
     sports: null,
     nightlife: null,
     food: null,
     history: null,
-    sciencetech: null,
+    science_technology: null,
     culture: null,
     fashion: null,
-    books: null
-
+    books: null,
+    movies: null,
+    health_wellness: null
   }
 
   constructor(private _route: Router) { }
@@ -36,22 +33,23 @@ export class BuildProfileComponent implements OnInit {
   }
 
   buildProfile(): void {
-    const { location,
+    const { 
       music,
-      art,
       outdoors,
       gaming,
       nature,
-      painting,
-      photography,
+      art,
       sports,
       nightlife,
       food,
       history,
-      sciencetech,
+      science_technology,
       culture,
       fashion,
-      books } = this.form;
+      books,
+      movies, 
+      health_wellness 
+    } = this.form;
     console.log(this.form);
 
     this._route.navigateByUrl('/mynest');
