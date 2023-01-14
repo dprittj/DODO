@@ -18,12 +18,12 @@ public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
     @Value("${dodo.app.jwtSecret}")
-    private static String jwtSecret;
+    private String jwtSecret;
 
     @Value("${dodo.app.jwtExpirationMs}")
-    private static int jwtExpirationMs;
+    private int jwtExpirationMs;
 
-    public static String generateJwtToken(Authentication authentication) {
+    public String generateJwtToken(Authentication authentication) {
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
         return Jwts.builder()
                 .setSubject((userPrincipal.getUsername()))
