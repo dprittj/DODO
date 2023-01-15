@@ -8,31 +8,38 @@
         </h1>
     </div>
 
-    <form #userForm="ngForm" (ngSubmit)="signIn()">
+    <form *ngIf="!isSuccessful" #userForm="ngForm" (ngSubmit)="userForm.form.valid && signIn()">
+
       <div class="username-container">
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-              <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="form.username" required class="input">
+              <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="form.username" required minlength="5" required class="input" required #username="ngModel">
               <span class="icon is-small is-left">
                 <i class="fa-solid fa-crow"></i>
               </span>
-
-            </p>
+                <div class="alert-danger" *ngIf="username.errors && userForm.submitted">
+                  <div *ngIf="username.errors['required']">Username is required.</div>
+                  <div *ngIf="username.errors['minlength']">Username must be at least 5 characters</div>
+                </div>
           </div>
         </div>
     
         <div class="password-container">
             <div class="field">
                 <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="form.password" required class="input">
+                  <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="form.password" required class="input" required #password="ngModel">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
-                </p>
+                  <div class="alert-danger" *ngIf="password.errors && userForm.submitted">
+                    <div *ngIf="password.errors['required']">Password is required</div>
+                    <div *ngIf="password.errors['minlength']">Password must be at least 8 characters</div>
+                    <div *ngIf="password.errors['maxlength']">Password must be 30 characters or less</div>
+                  </div>
               </div>
         </div>
                 <!--the "save button is disables when the form is not valid!"-->
-     <button class="button is-primary" id="submitButton" name type="submit" [disabled]="!userForm.valid">Log in</button>
+     <button class="button is-primary" id="submitButton" type="submit">Log in</button>
     
     </form>
    

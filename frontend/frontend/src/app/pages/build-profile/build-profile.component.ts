@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
 @Component({
   selector: 'app-build-profile',
@@ -30,13 +31,24 @@ export class BuildProfileComponent implements OnInit {
 
   }
 
+  //added below ngOnInit method for authorization by checking for token
+  currentUser: any;
+  roles: string[] = [];
   isLoggedIn = false;
 
-  constructor(private _route: Router) { }
+  constructor(private _route: Router, private token: TokenStorageService) { }
 
   ngOnInit(): void {
-
-  }
+      if(this.token.getToken()){
+        this.isLoggedIn = true;
+        this.roles = this.token.getUser().roles;
+      }
+      if(!this.isLoggedIn){
+        this._route.navigateByUrl('/login');
+      }
+      this.currentUser = this.token.getUser();
+    }
+  
 
   buildProfile(): void {
     const { location,

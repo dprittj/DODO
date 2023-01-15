@@ -16,18 +16,24 @@ export class LoginPageComponent implements OnInit {
     password: null
   };
   isLoggedIn = false;
+  isSuccessful = false;
   roles: string[] = [];
+  errorMessage = '';
+  isLoginFailed = false;
 
   constructor(private _route: Router, private _service: UserService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
-  
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+    }
   }
 
   signIn(): void  {
     //authenticate username and hashkey 
     const { username, password } = this.form;
-    console.log(this.form);
+    // console.log(this.form);
     this._service.getUserByUsername(username, password).subscribe(
       data=>{
         this.tokenStorage.saveToken(data.accessToken);
@@ -36,8 +42,9 @@ export class LoginPageComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
 
         console.log("Successfully logged in");
-      }
+        this._route.navigateByUrl('/mynest');
+      },
     )
-    this._route.navigateByUrl('/mynest');
+    // this._route.navigateByUrl('/mynest');
   }
 }
