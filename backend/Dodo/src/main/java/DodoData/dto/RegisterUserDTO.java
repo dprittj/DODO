@@ -12,14 +12,12 @@ public class RegisterUserDTO {
 
     @NotNull
     @NotBlank
-    @Size(min = 3, max = 30, message = "Invalid username. Must be between 3 and 30 characters.")
     private String username;
 
     private String location;
 
     @NotNull
     @NotBlank
-    @Size(min = 5, max = 30, message = "Invalid password. Must be between 5 and 30 characters.")
     private String password;
 
     public String getEmail() {return email;}
