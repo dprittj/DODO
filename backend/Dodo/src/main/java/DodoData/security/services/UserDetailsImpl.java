@@ -22,14 +22,16 @@ public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
     private Integer id;
     private String username;
+    private String location;
     @JsonIgnore
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Integer id, String username, String password,
+    public UserDetailsImpl(Integer id, String username, String location, String password,
                            Collection<? extends GrantedAuthority> authorities){
         this.id = id;
         this.username = username;
+        this.location = location;
         this.password = password;
         this.authorities = authorities;
     }
@@ -41,6 +43,7 @@ public class UserDetailsImpl implements UserDetails {
         return new UserDetailsImpl(
                 user.getId(),
                 user.getUsername(),
+                user.getLocation(),
                 user.getPwHash(),
                 authorities
         );
@@ -65,9 +68,9 @@ public class UserDetailsImpl implements UserDetails {
     }
 
     @Override
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() {return username;}
+
+    public String getLocation() {return location;}
 
     @Override
     public boolean isAccountNonExpired() {
