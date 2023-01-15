@@ -7,48 +7,62 @@
         </h1>
     </div>
 
-    <form #userForm="ngForm" (ngSubmit)="signUp()">
+    <form *ngIf="!isSuccessful" #userForm="ngForm" (ngSubmit)="signUp()">
 
         <div class="email-container">
             <p class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email" name="email" [(ngModel)]="form.email" required class="input">
+              <input class="input" type="email" placeholder="Email" name="email" [(ngModel)]="form.email" required class="input" required minlength="5" maxlength="30" #email="ngModel">
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
-            </p>
+              <div class="alert-danger" *ngIf="email.errors && userForm.submitted">
+                <div *ngIf="email.errors['required']">Email is required</div>
+                <div *ngIf="email.errors['minlength']">Email must be at least 5 characters</div>
+                <div *ngIf="email.errors['maxlength']">Email must be 30 characters or less</div>
+              </div>
         </div>
         
       <div class="username-container">
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-              <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="form.username" required class="input">
+              <input class="input" type="text" placeholder="Username" name="username" [(ngModel)]="form.username" required minlength="5" maxlength="30" required class="input" 
+               #username="ngModel">
               <span class="icon is-small is-left">
                 <i class="fa-solid fa-crow"></i>
               </span>
-
-            </p>
+              <div class="alert-danger" *ngIf="username.errors && userForm.submitted">
+                <div *ngIf="username.errors['required']">Username is required</div>
+                <div *ngIf="username.errors['minlength']">Username must be at least 5 characters</div>
+                <div *ngIf="username.errors['maxlength']">Username must be 30 characters or less</div>
+              </div>
           </div>
         </div>
 
         <div class="location-container">
           <div class="field">
               <p class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Location" name="location" [(ngModel)]="form.location" required class="input">
+                <input class="input" type="text" placeholder="Location" name="location" [(ngModel)]="form.location" required class="input" #location="ngModel">
                 <span class="icon is-small is-left">
                   <i class="fa-solid fa-location-dot"></i>
                 </span>
-              </p>
+                <div class="alert-danger" *ngIf="location.errors && userForm.submitted">
+                  <div *ngIf="location.errors['required']">Location is required</div>
+                </div>
             </div>
           </div>
     
         <div class="password-container">
             <div class="field">
                 <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="form.password" required class="input">
+                  <input class="input" type="password" placeholder="Password" name="password" [(ngModel)]="form.password" required minlength="8" maxlength="30" required class="input" #password="ngModel">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
-                </p>
+                  <div class="alert-danger" *ngIf="password.errors && userForm.submitted">
+                    <div *ngIf="password.errors['required']">Password is required</div>
+                    <div *ngIf="password.errors['minlength']">Password must be at least 8 characters</div>
+                    <div *ngIf="password.errors['maxlength']">Password must be 30 characters or less</div>
+                  </div>
               </div>
         </div>
 
@@ -57,15 +71,18 @@
         <div class="verify-password-container">
             <div class="field">
                 <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Verify Password" name="verify-password" [(ngModel)]="form.verifyPassword" required class="input">
+                  <input class="input" type="password" placeholder="Verify Password" name="verify-password" [(ngModel)]="form.verifyPassword" pattern="!verifyPassword.value == password.value" required class="input" required #password="ngModel" #verifyPassword="ngModel">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
-                </p>
-              </div>
-        </div> 
+                  <div class="alert-danger" *ngIf="verifyPassword.errors && userForm.submitted">
+                    <div *ngIf="verifyPassword.errors['pattern']">Verify Password is required and must match Password.</div>
+                  </div>
+           </div>
+        </div>
+
                 <!--the "save button is disables when the form is not valid!"-->
-     <button class="button is-primary" id="submitButton" type="submit" [disabled]="!userForm.valid">Sign Up</button>
+     <button class="button is-primary" id="submitButton" type="submit">Sign Up</button>
     
     </form> 
    

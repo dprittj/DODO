@@ -20,6 +20,7 @@ export class SignUpComponent implements OnInit {
     verifyPassword: null
   };
 
+  isSuccessful = false;
   isLoggedIn = false;
   errorMessage = '';
   roles: string[] = [];
@@ -38,7 +39,7 @@ export class SignUpComponent implements OnInit {
   signUp(): void  {
     const {email, username, location, password, verifyPassword} = this.form;
     if (password == verifyPassword) {
-      console.log(this.form);
+      // console.log(this.form);
       this._service.createNewUser(email, username, location, password).subscribe(
         data=>{
           console.log("New User Created");

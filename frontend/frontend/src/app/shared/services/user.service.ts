@@ -39,7 +39,7 @@ export class UserService {
     return this._http.post(this.API + "login", {
       username,
       password,
-    }, httpOptions)
+    }, httpOptions);
   }
   
 }
