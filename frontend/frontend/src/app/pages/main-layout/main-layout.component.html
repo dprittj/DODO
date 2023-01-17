@@ -10,9 +10,9 @@
 
     <!--displays the navigation bar-->
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation" href="#">
       
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navbar" class="navbar-menu" routerLinkActive="active" >
           <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
@@ -22,19 +22,14 @@
 
               <div class="navbar-dropdown">
 
-                <a class="navbar-item">
-                  Home Page
-                </a>
 
-                <hr class="navbar-divider">
-
-                <a class="navbar-item">
+                <a href="/mynest" class="navbar-item" routerLink="mynest">
                   My Nest (Profile)
                 </a>
 
                 <hr class="navbar-divider">
 
-                <a class="navbar-item">
+                <a href="" class="navbar-item" routerLink="">
                   Itineraries
                 </a>
 
