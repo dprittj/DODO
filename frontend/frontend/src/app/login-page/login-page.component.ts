@@ -44,7 +44,20 @@ export class LoginPageComponent implements OnInit {
         console.log("Successfully logged in");
         this._route.navigateByUrl('/mynest');
       },
+
     )
     // this._route.navigateByUrl('/mynest');
+  }
+
+  unableToSignIn(): void {
+    const {username} = this.form;
+    this._service.getUsername(username).subscribe(
+      data =>{
+        if (this.isLoggedIn == false) {
+          this._route.navigateByUrl('/signup');
+        }
+
+      }
+    )
   }
 }
