@@ -1,6 +1,5 @@
 <div class="main-container">
 
-  <form class="ngForm" (ngSubmit)="buildProfile()">
     <div class="customize-profile-box">
         <h1 class="has-text-centered">Build your profile</h1>
     </div>
@@ -14,14 +13,14 @@
       </div>
       <div class="field location-container">
         <p class="control has-icons-left">
-          <input class="input" type="text" placeholder="Location" name="location" readonly>
+          <input class="input" type="text" placeholder="{{currentUser.location}}" name="location" readonly>
           <span class="icon is-small is-left">
             <i class="fa fa-location-arrow"></i>
           </span>
         </p>
       </div>
     
-    
+    <form class="ngForm" (ngSubmit)="buildProfile()">
     <div class="interest-container">
         <h1 class="has-text-centered">Interests:</h1>
         <div class="control checkboxes">

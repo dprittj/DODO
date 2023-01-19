@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -66,7 +67,6 @@ export class BuildProfileComponent implements OnInit {
       movies, 
       health_wellness 
     } = this.form;
-    console.log(this.form);
     this._service.saveInterests(music,
       outdoors,
       gaming,

@@ -1,7 +1,11 @@
 import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { InterestsService } from 'src/app/shared/services/interests.service';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+
+
 
 @Component({
   selector: 'app-user-profile',
@@ -10,11 +14,29 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
+  form: any = {
+    music: null,
+    outdoors: null,
+    gaming: null,
+    nature: null,
+    art: null,
+    sports: null,
+    nightlife: null,
+    food: null,
+    history: null,
+    science_technology: null,
+    culture: null,
+    fashion: null,
+    books: null,
+    movies: null,
+    health_wellness: null
+  }
+
   currentUser: any;
   isLoggedIn = false;
   roles: string[] = [];
 
-  constructor(private _route: Router, private token: TokenStorageService) { }
+  constructor(private _route: Router, private token: TokenStorageService, private _service: InterestsService) { }
 
   ngOnInit(): void {
     if(this.token.getToken()){
@@ -25,6 +47,47 @@ export class UserProfileComponent implements OnInit {
       this._route.navigateByUrl('/login');
     }
     this.currentUser = this.token.getUser();
+  }
+
+  addInterests() {
+    const { 
+      music,
+      outdoors,
+      gaming,
+      nature,
+      art,
+      sports,
+      nightlife,
+      food,
+      history,
+      science_technology,
+      culture,
+      fashion,
+      books,
+      movies, 
+      health_wellness 
+    } = this.form;
+      this._service.saveMoreInterests(music,
+      outdoors,
+      gaming,
+      nature,
+      art,
+      sports,
+      nightlife,
+      food,
+      history,
+      science_technology,
+      culture,
+      fashion,
+      books,
+      movies, 
+      health_wellness).subscribe(
+      data=>{
+        console.log("Interests Added");
+        console.log(data);
+  }
+);
+
   }
 
 }

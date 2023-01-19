@@ -50,5 +50,39 @@ export class InterestsService {
             health_wellness 
         }, httpOptions);
     }
+
+    saveMoreInterests(music: Boolean,
+        outdoors: Boolean,
+        gaming: Boolean,
+        nature: Boolean,
+        art: Boolean,
+        sports: Boolean,
+        nightlife: Boolean,
+        food: Boolean,
+        history: Boolean,
+        science_technology: Boolean,
+        culture: Boolean,
+        fashion: Boolean,
+        books: Boolean,
+        movies: Boolean, 
+        health_wellness: Boolean): Observable<any>{
+        return this._http.post(this.API + "mynest", {
+            music,
+            outdoors,
+            gaming,
+            nature,
+            art,
+            sports,
+            nightlife,
+            food,
+            history,
+            science_technology,
+            culture,
+            fashion,
+            books,
+            movies, 
+            health_wellness 
+        }, httpOptions);
+    }
     
 }

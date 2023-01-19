@@ -1,0 +1,72 @@
+@import '../../../main-styles.scss';
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 500px;
+
+    margin: auto;
+
+    padding-top: 50px;
+}
+
+.name-container {
+    height: 50px;
+    font-size: 35px;
+}
+
+.links-container {
+    height: 20px;
+    margin-bottom: 20px;
+}
+
+.add-interests-container {
+    max-width: 500px;
+    margin-bottom: 20px;
+
+    .checkboxes {
+        margin-bottom: 10px;
+    }
+
+    .checkboxes input {
+        margin: 0px 0px 0px 0px;
+      }
+      
+    .checkboxes label {
+        margin: 0px 6px 0px 3px;
+      }    
+
+    h1 {
+        height: 50px;
+        color: white;
+        background: $purple;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+}
+
+.saved-interests-container {
+    max-width: 500px;
+    margin-top: 10px;
+
+    .checkboxes {
+        margin-bottom: 10px;
+    }
+
+    .checkboxes input {
+        margin: 0px 0px 0px 0px;
+      }
+      
+    .checkboxes label {
+        margin: 0px 6px 0px 3px;
+      }    
+
+    h1 {
+        height: 50px;
+        color: white;
+        background: $purple;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+}
