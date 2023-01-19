@@ -42,10 +42,10 @@ export class UserService {
     }, httpOptions);
   }
 
-  getUsername(username: String): Observable<any>{
-    return this._http.post(this.API + "login", {
-      username,
-    }, httpOptions);
-  }
+  // getUsername(username: String): Observable<any>{
+  //   return this._http.post(this.API + "login", {
+  //     username,
+  //   }, httpOptions);
+  // }
   
 }

@@ -44,7 +44,11 @@ export class SignUpComponent implements OnInit {
         data=>{
           console.log("New User Created");
           console.log(data);
-          this._route.navigateByUrl('buildnest');
+          this.tokenStorage.saveToken(data.accessToken);
+          this.tokenStorage.saveUser(data);
+          this.isLoggedIn = true;
+          this.roles = this.tokenStorage.getUser().roles;
+          this._route.navigateByUrl('/buildnest');
              }
           );
         }
