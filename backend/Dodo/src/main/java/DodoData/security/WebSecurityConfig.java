@@ -76,7 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .allowedHeaders("*")
                     .allowCredentials(false)
                     .maxAge(3600);
-
         }
     }
-        }
+
+}

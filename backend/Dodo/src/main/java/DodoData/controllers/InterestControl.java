@@ -1,10 +1,15 @@
 package DodoData.controllers;
 
+import DodoData.dto.InterestsDTO;
+import DodoData.dto.MessageResponse;
 import DodoData.models.DodoRepos.InterestsTypeRepository;
-import DodoData.models.DodoRepos.ProfileRepository;
 import DodoData.models.DodoRepos.UserRepository;
 import DodoData.models.InterestsType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,52 +21,56 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-import static DodoData.models.InterestsType.userValue;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Controller
-//@ComponentScan
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Iterator;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class InterestControl {
 
     @Autowired
-    private ProfileRepository profileRepository;
+    InterestsTypeRepository interestsTypeRepository;
 
     @Autowired
-    private InterestsTypeRepository interestsTypeRepository;
-
-    @Autowired
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
     private List<InterestsType> userChoices;
 
-    //GetMapping()
-    public String showUserChoices(Model model) {
-        userChoices = InterestsTypeRepository.findByUserValueTrue(true);
-        model.addAttribute("savedInterests", userChoices);
-        return "MyNest";
+    @PostMapping ("/buildnest")
+    public ResponseEntity<?> userInterests(@RequestBody InterestsDTO savedInterest){
+
+
+
+        InterestsType interestsType = new InterestsType(savedInterest.getInterestsChecked(), savedInterest.getInterestName());
+
+        interestsTypeRepository.save(interestsType);
+        System.out.println(savedInterest.getInterestsChecked());
+        return ResponseEntity.ok(new MessageResponse("Interests saved!"));
+
     }
 
-//    @GetMapping()
-    public String interestOptions(Model model){
-        model.addAttribute("interests", interestsTypeRepository.findAll());
-        return "redirect";
+//    @PostMapping("/buildnest")
+//    public ResponseEntity<ObjectMapper> returnInterestsObject(@RequestBody InterestsDTO savedInterest) throws JsonParseException, JsonMappingException, IOException{
+//
+//        ObjectMapper interestsMapper = new ObjectMapper();
+//
+//        InputStream fileInputStream = new FileInputStream("http://localhost:4200/buildnest");
+//        InterestsType typeInterests = interestsMapper.readValue(fileInputStream, InterestsType.class);
+//        fileInputStream.close;
+//
+//    }
+
+    public static InterestsType getJsonInterests(URL "http://localhost:4200/buildnest") {
+        String json = IOUtils.toString(url, Charset.forName("UTF-8"));
+        return new InterestsType(json);
     }
-
-//    @GetMapping()
-    public String interestChoices(){
-        List<Iterable> choices = new ArrayList<>();
-        choices.add(interestsTypeRepository.findAll());
-
-        List<Iterable> profileInterests = new ArrayList<>();
-
-        for ( Iterable choice : choices) {
-            if (userValue){
-                profileInterests.add(choice);
-            }
-            return profileInterests.toString();
-        }
 
         return "userProfile";
     }
