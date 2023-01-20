@@ -9,7 +9,7 @@ public class InterestsDTO {
 
     public Boolean interestsChecked;
 
-    public InterestsDTO(Boolean check, String interestName, HashMap<String, Boolean> map) {
+    public InterestsDTO(Boolean check, String interestName) {
         this.interestsChecked = check;
         this.interestName = interestName;
     }

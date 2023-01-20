@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.nio.charset.Charset;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -69,6 +70,19 @@ public class InterestControl {
 //    public static InterestsType getJsonInterests(URL "http://localhost:4200/buildnest") {
 //        String json = IOUtils.toString(url, Charset.forName("UTF-8"));
 //        return new InterestsType(json);
-//    }
+//        ObjectMapper interestsMapper = new ObjectMapper();
+//
+//        InputStream fileInputStream = new FileInputStream("http://localhost:4200/buildnest");
+//        InterestsType typeInterests = interestsMapper.readValue(fileInputStream, InterestsType.class);
+//        fileInputStream.close;
+//
+
+
+    public static InterestsType getJsonInterests(URL "http://localhost:4200/buildnest") {
+        String json = IOUtils.toString(url, Charset.forName("UTF-8"));
+        return new InterestsType(json);
+    }
+
+
 
 }
