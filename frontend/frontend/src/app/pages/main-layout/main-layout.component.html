@@ -10,9 +10,9 @@
 
     <!--displays the navigation bar-->
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation" href="#">
       
-        <div id="navbarBasicExample" class="navbar-menu">
+        <div id="navbar" class="navbar-menu" routerLinkActive="active" >
           <div class="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
@@ -22,31 +22,26 @@
 
               <div class="navbar-dropdown">
 
-                <a class="navbar-item">
-                  Home Page
-                </a>
 
-                <hr class="navbar-divider">
-
-                <a class="navbar-item">
+                <a href="/mynest" class="navbar-item" routerLink="mynest">
                   My Nest (Profile)
                 </a>
 
                 <hr class="navbar-divider">
 
-                <a class="navbar-item">
+                <a href="/itineraries" class="navbar-item" routerLink="itineraries">
                   Itineraries
                 </a>
 
                 <hr class="navbar-divider">
 
-                <a class="navbar-item">
+                <a href="/generate" class="navbar-item" routerLink="generate">
                   Generate a Dodo
                 </a>
 
                 <hr class="navbar-divider">
 
-                <a class="navbar-item">
+                <a href="/submitpoi" class="navbar-item" routerLink="submitpoi">
                  Submit a Point of Interest
                 </a>
 

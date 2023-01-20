@@ -12,6 +12,9 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { GenerateDodoComponent } from './pages/generate-dodo/generate-dodo.component';
+import { ItinerariesComponent } from './pages/itineraries/itineraries.component';
+import { SubmitpoiComponent } from './pages/submitpoi/submitpoi.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
     SignUpComponent,
     BuildProfileComponent,
     WelcomePageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    GenerateDodoComponent,
+    ItinerariesComponent,
+    SubmitpoiComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@ export class LoginPageComponent implements OnInit {
   isLoggedIn = false;
   isSuccessful = false;
   roles: string[] = [];
-  errorMessage = '';
+  showErrorMessage = false;
   isLoginFailed = false;
 
   constructor(private _route: Router, private _service: UserService, private tokenStorage: TokenStorageService) { }
@@ -36,15 +36,37 @@ export class LoginPageComponent implements OnInit {
     // console.log(this.form);
     this._service.getUserByUsername(username, password).subscribe(
       data=>{
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(data);
-        this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
+        if (data) {
+          // console.log(data.token)
+          if (data.token) {
+            this.tokenStorage.saveToken(data.accessToken);
+            this.tokenStorage.saveUser(data);
+            this.isLoggedIn = true;
+            this.roles = this.tokenStorage.getUser().roles;
 
-        console.log("Successfully logged in");
-        this._route.navigateByUrl('/mynest');
+            console.log("Successfully logged in");
+            this._route.navigateByUrl('/mynest');
+          } else {
+            console.log("No Token");
+          }
+        }
       },
+      (error) => {
+        this.showErrorMessage = true;
+      }
     )
-    // this._route.navigateByUrl('/mynest');
+
   }
+
+  // unableToSignIn(): void {
+  //   const {username} = this.form;
+  //   this._service.getUsername(username).subscribe(
+  //     data =>{
+  //       if (this.isLoggedIn == false) {
+  //         this._route.navigateByUrl('/signup');
+  //       }
+
+  //     }
+  //   )
+  // }
 }

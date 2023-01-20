@@ -6,7 +6,6 @@ import DodoData.dto.LoginFormDTO;
 import DodoData.dto.MessageResponse;
 import DodoData.dto.RegisterUserDTO;
 import DodoData.models.DodoRepos.InterestsTypeRepository;
-import DodoData.models.DodoRepos.ProfileRepository;
 import DodoData.models.DodoRepos.RoleRepository;
 import DodoData.models.DodoRepos.UserRepository;
 import DodoData.models.ERole;
@@ -23,12 +22,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 //CrossOrigin determines pulling information from the frontEnd.
@@ -44,10 +39,7 @@ public class UserController {
     AuthenticationManager authenticationManager;
 
     @Autowired
-    private ProfileRepository profileRepository;
-
-    @Autowired
-    private InterestsTypeRepository interestsTypeRepository;
+    InterestsTypeRepository interestsTypeRepository;
 
     @Autowired
     UserRepository userRepository;
@@ -101,5 +93,6 @@ public class UserController {
                 userDetails.getLocation(),
                 roles));
     }
+
 
 }

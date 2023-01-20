@@ -10,7 +10,7 @@ public abstract class IdAbstract {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    public Integer id;
 
     public Integer getId() {
         return id;

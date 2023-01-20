@@ -1,0 +1,113 @@
+<div class="main-container">
+
+    <div class="generate-text-box">
+        <h1 class="has-text-centered">
+            Generate a Dodo:
+        </h1>
+    </div>
+
+    <form class="ngForm" (ngSubmit)="generate()">
+
+        <div class="timeAvailable" [(ngModel)]="form.timeAvailable" name="timeAvailable">
+            <div class="control has-icons-left">
+                <div class="select is-medium">
+                <select>
+                    <option selected>Time Available</option>
+                    <option>2 hours</option>
+                    <option>4 hours</option>
+                    <option>6 hours</option>
+                    <option>8 hours</option>
+                    <option>No Time Limit</option>
+                </select>
+                </div>
+                <span class="icon is-medium is-left">
+                    <i class="fa-regular fa-clock"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="priceRange" [(ngModel)]="form.priceRange" name="priceRange">
+            <div class="control has-icons-left">
+                <div class="select is-medium">
+                <select>
+                    <option selected>Price Range</option>
+                    <option>Free</option>
+                    <option>Under $25</option>
+                    <option>Under $50</option>
+                    <option>Under $75</option>
+                    <option>Under $100</option>
+                    <option>Under $150</option>
+                    <option>No Price Limit</option>
+                </select>
+                </div>
+                <span class="icon is-medium is-left">
+                    <i class="fa-regular fa-money-bill-1"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="numberOfDodos" [(ngModel)]="form.numberOfDodos" name="numberOfDodos">
+          <div class="control has-icons-left">
+            <div class="select is-medium">
+              <select>
+                <option selected>Number of Itinerary Items</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <span class="icon is-medium is-left">
+                <i class="fa-solid fa-car-on"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="referenceInterests" [(ngModel)]="form.referenceInterests" name="referenceInterests">
+            <div class="control" >
+                <label>Would you like Dodo to reference your personal interests? </label>
+                <label class="radio">
+                <input type="radio" name="savedInterests" checked>
+                Yes
+                </label>
+                <label class="radio">
+                <input type="radio" name="savedInterests">
+                No
+                </label>
+            </div>
+        </div>
+
+        <div class="addMoreInterests" [(ngModel)]="form.addMoreInterests" name="addMoreInterests">
+            <div class="interest-container">
+                <h1 class="has-text-centered"> Add Additional Interests:</h1>
+                <div class="control checkboxes">
+                    <span>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.music"> <label>Music</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.outdoors"> <label>Outdoors</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.gaming"> <label>Gaming</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.nature"> <label>Nature</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.art"> <label>Art</label><br>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.sports"> <label>Sports</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.nightlife"> <label>Nightlife</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.food"> <label>Food</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.history"> <label>History</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.science_technology"> <label>Science/Technology</label><br>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.culture"> <label>Culture</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.fashion"> <label>Fashion</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.books"> <label>Books</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.movies"> <label>Movies</label>
+                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.health_wellness"> <label>Health/Wellness</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+  
+
+      
+                <!--the "save button is disables when the form is not valid!"-->
+     <button class="button is-primary" id="submitButton" type="submit">Generate</button>
+    
+    </form>
+   
+</div>
