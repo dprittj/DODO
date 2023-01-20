@@ -1,0 +1,85 @@
+@import '../../../main-styles.scss';
+
+
+//main container holds the body of the full page
+.main-container {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 500px;
+
+    margin: auto;
+
+    padding-top: 50px;
+
+    //displays the "Log In: text box
+    .generate-text-box {
+
+        height: 68px;
+        background: $purple;
+        margin-bottom: 50px;
+
+        box-shadow: 0px 0px 10px 0px rgba(black, 0.15);
+
+        h1 {
+            color: white;
+            font-size: 50px;
+            
+        }
+    }
+
+    .timeAvailable {
+        margin-bottom: 25px;
+        // .select{
+
+        // }
+    }
+
+    .priceRange {
+        margin-bottom: 25px;
+        
+    }
+
+
+    .numberOfDodos {
+        margin-bottom: 25px;
+    }
+
+    .referenceInterests {
+        margin-bottom: 25px;
+    }
+
+    .addMoreInterests {
+        margin-bottom: 25px;
+
+    }
+
+    .interest-container {
+    
+        max-width: 500px;
+    
+        .checkboxes {
+            margin-bottom: 10px;
+        }
+    
+        .checkboxes input {
+            margin: 0px 0px 0px 0px;
+          }
+          
+        .checkboxes label {
+            margin: 0px 6px 0px 3px;
+          }    
+    
+        h1 {
+            height: 50px;
+            color: white;
+            background: $purple;
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+    }
+    
+}
+#submitButton {
+    width: 500px;
+}
