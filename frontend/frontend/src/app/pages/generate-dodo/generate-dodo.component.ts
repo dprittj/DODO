@@ -11,11 +11,25 @@ import { NgForm, FormsModule } from '@angular/forms';
 export class GenerateDodoComponent implements OnInit {
 
   form: any ={
-    timeAvailable: null,
+    travelDistance: null,
     priceRange: null,
     numberOfDodos: null,
     referenceInterests: null,
-    addMoreInterests: null,
+    music: null,
+    outdoors: null,
+    gaming: null,
+    nature: null,
+    art: null,
+    sports: null,
+    nightlife: null,
+    food: null,
+    history: null,
+    science_technology: null,
+    culture: null,
+    fashion: null,
+    books: null,
+    movies: null,
+    health_wellness: null
   }
 
   currentUser: any;

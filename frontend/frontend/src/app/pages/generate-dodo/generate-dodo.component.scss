@@ -28,16 +28,14 @@
         }
     }
 
-    .timeAvailable {
+    .travelDistance {
         margin-bottom: 25px;
-        // .select{
-
-        // }
+        margin-left: 15px;
     }
 
     .priceRange {
         margin-bottom: 25px;
-        
+        margin-left: 125px;
     }
 
 
@@ -46,7 +44,18 @@
     }
 
     .referenceInterests {
+        h1 {
+            height: 50px;
+            color: white;
+            background: $purple;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
         margin-bottom: 25px;
+
+        .checkbox {
+            margin-left: 75px;
+        }
     }
 
     .addMoreInterests {
