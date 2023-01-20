@@ -1,12 +1,15 @@
 package DodoData.models;
 
+import jdk.jfr.DataAmount;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,9 +28,6 @@ public class User extends IdAbstract {
 
     @NotBlank
     private String pwHash;
-
-    @OneToOne
-    private Profile userProfile;
 
     @ManyToMany(fetch =FetchType.LAZY)
     @JoinTable( name = "user_roles",

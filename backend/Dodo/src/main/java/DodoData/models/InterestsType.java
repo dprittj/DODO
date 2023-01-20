@@ -1,32 +1,34 @@
 package DodoData.models;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @Entity
-@EntityScan
 public class InterestsType extends IdAbstract{
 
-    private String interestsType;
+    Boolean interestsChecked;
 
-    public static Boolean userValue;
+    String interestName;
 
-    @ManyToOne
-    @JoinColumn(name = "user_profile_id")
-    private Profile userProfile;
+//    static HashMap<String, List> searchInterests = new HashMap<>();
 
-    public Profile getUserProfile() {
-        return userProfile;
-    }
+//    static List<String> interestTypes = new ArrayList<>();
+//    public static String[] interestsArray = {
+//            "Music", "Outdoors", "Gaming", "Nature", "Art", "Sports", "Nightlife", "Food", "History", "ScienceTechnology", "Culture", "Fashion", "Books", "Movies", "HealthWellness"
+//    };
+//    public String interestItem(){
+//        for (String interest : interestsArray) {
+//            interestsType = interest;
+//        }
+//        return interestsType;
+//    }
 
-    public void setUserProfile(Profile userProfile) {
-        this.userProfile = userProfile;
-    }
-
-    public InterestsType(String type, boolean value){
-        this.interestsType = type;
-        this.userValue = value;
+//    constructors
+    public InterestsType(Boolean check, String name){
+        this.interestsChecked = check;
+        this.interestName = name;
     }
 
     public InterestsType(){
@@ -35,19 +37,20 @@ public class InterestsType extends IdAbstract{
 
     //Getters and Setters
 
-    public String getInterestsType() {
-        return interestsType;
+    public String getInterestName() {
+        return interestName;
     }
 
-    public void setInterestsType(String interestsType) {
-        this.interestsType = interestsType;
+    public void setInterestName(String interestName) {
+        this.interestName = interestName;
     }
 
-    public static Boolean getUserValue() {
-        return userValue;
+    public Boolean getInterestsChecked() {
+        return interestsChecked;
     }
 
-    public static void setUserValue(Boolean userValue) {
-        InterestsType.userValue = userValue;
+    public void setInterestsChecked(Boolean check) {
+        this.interestsChecked = check;
     }
+
 }
