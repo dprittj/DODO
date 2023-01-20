@@ -49,6 +49,7 @@ export class BuildProfileComponent implements OnInit {
   
 
   buildProfile(): void {
+    console.log("Are we there yet?");
     const { 
       music,
       outdoors,
@@ -67,6 +68,7 @@ export class BuildProfileComponent implements OnInit {
       health_wellness 
     } = this.form;
     console.log(this.form);
+    console.log("We're here");
     this._service.saveInterests(music,
       outdoors,
       gaming,
