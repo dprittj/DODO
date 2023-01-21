@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../shared/services/token-storage.service';
 import { Router } from '@angular/router';
 
+ declare var weatherWidget: any;//imports weather widget script file
+
 @Component({
   selector: 'app-itineraries',
   templateUrl: './itineraries.component.html',
   styleUrls: ['./itineraries.component.scss']
 })
 export class ItinerariesComponent implements OnInit {
-  
+
   currentUser: any;
   roles: string[] = [];
   isLoggedIn = false;
@@ -24,7 +26,11 @@ export class ItinerariesComponent implements OnInit {
       this._route.navigateByUrl('/login');
     }
     this.currentUser = this.token.getUser();
+
+    new weatherWidget;//runs weather widget on init
   
   }
 
 }
+
+
