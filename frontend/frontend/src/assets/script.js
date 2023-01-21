@@ -101,7 +101,8 @@ let weather = {
       }
     }
   };
-  
+
+  function weatherWidget(){
   document.querySelector(".search button").addEventListener("click", function () {
     weather.search();
   });
@@ -115,3 +116,4 @@ let weather = {
     });
   
   geocode.getLocation();
+  }
