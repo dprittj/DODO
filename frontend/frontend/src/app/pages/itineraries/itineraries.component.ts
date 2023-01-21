@@ -3,6 +3,7 @@ import { TokenStorageService } from '../../shared/services/token-storage.service
 import { Router } from '@angular/router';
 
  declare var weatherWidget: any;//imports weather widget script file
+ declare var initMap: any;
 
 @Component({
   selector: 'app-itineraries',
@@ -28,6 +29,7 @@ export class ItinerariesComponent implements OnInit {
     this.currentUser = this.token.getUser();
 
     new weatherWidget;//runs weather widget on init
+    new initMap; //returns map
   
   }
 
