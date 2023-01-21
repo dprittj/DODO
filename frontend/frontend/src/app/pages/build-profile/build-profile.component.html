@@ -1,0 +1,54 @@
+<div class="main-container">
+
+  <form class="ngForm" (ngSubmit)="buildProfile()">
+    <div class="customize-profile-box">
+        <h1 class="has-text-centered">Build your profile</h1>
+    </div>
+    <div class="field name-container">
+        <p class="control has-icons-left">
+          <input class="input" type="text" placeholder="{{currentUser.username}}" name="username" readonly>
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field location-container">
+        <p class="control has-icons-left">
+          <input class="input" type="text" placeholder="Location" name="location" readonly>
+          <span class="icon is-small is-left">
+            <i class="fa fa-location-arrow"></i>
+          </span>
+        </p>
+      </div>
+    
+    
+    <div class="interest-container">
+        <h1 class="has-text-centered">Interests:</h1>
+        <div class="control checkboxes">
+            <span>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.music"> <label>Music</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.outdoors"> <label>Outdoors</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.gaming"> <label>Gaming</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.nature"> <label>Nature</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.art"> <label>Art</label><br>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.sports"> <label>Sports</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.nightlife"> <label>Nightlife</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.food"> <label>Food</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.history"> <label>History</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.science_technology"> <label>Science/Technology</label><br>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.culture"> <label>Culture</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.fashion"> <label>Fashion</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.books"> <label>Books</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.movies"> <label>Movies</label>
+                <input type="checkbox" name="savedinterest" [(ngModel)]="form.health_wellness"> <label>Health/Wellness</label>
+            </span>
+        </div>
+    </div>
+    
+    <div class="buttons is-centered">
+    <button class="button is-primary" type="submit">Submit</button>
+    </div>
+
+  </form>
+        
+</div>
