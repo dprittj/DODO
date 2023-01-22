@@ -12,43 +12,38 @@
 }
 
 .name-container {
-    height: 50px;
-    font-size: 35px;
+    height: 60px;
+    
+    margin-bottom: 25px;
+
+    h1 {
+        font-size: 35px;
+    }
+
+    h2 {
+        font-size: 20px;
+        // text-align: right;
+    }
 }
 
 .links-container {
-    height: 20px;
+    height: 180px;
     margin-bottom: 20px;
-}
+    text-align: center;
 
-.add-interests-container {
-    max-width: 500px;
-    margin-bottom: 20px;
-
-    .checkboxes {
-        margin-bottom: 10px;
+    .button1 {
+        background: $pink;
     }
 
-    .checkboxes input {
-        margin: 0px 0px 0px 0px;
-      }
-      
-    .checkboxes label {
-        margin: 0px 6px 0px 3px;
-      }    
-
-    h1 {
-        height: 50px;
-        color: white;
+    .button2 {
         background: $purple;
-        font-size: 35px;
-        margin-bottom: 10px;
     }
+   
 }
 
 .saved-interests-container {
     max-width: 500px;
-    margin-top: 10px;
+    margin-bottom: 5px;
 
     .checkboxes {
         margin-bottom: 10px;
@@ -70,3 +65,28 @@
         margin-bottom: 10px;
     }
 }
+
+// .add-interests-container {
+//     max-width: 500px;
+//     margin-bottom: 20px;
+
+//     .checkboxes {
+//         margin-bottom: 10px;
+//     }
+
+//     .checkboxes input {
+//         margin: 0px 0px 0px 0px;
+//       }
+      
+//     .checkboxes label {
+//         margin: 0px 6px 0px 3px;
+//       }    
+
+//     h1 {
+//         height: 50px;
+//         color: white;
+//         background: $purple;
+//         font-size: 35px;
+//         margin-bottom: 10px;
+//     }
+// }

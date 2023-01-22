@@ -20,34 +20,38 @@
         </p>
       </div>
     
-    <form class="ngForm" (ngSubmit)="buildProfile()">
+    <form #interestForm="ngForm" (ngSubmit)="buildProfile()">
     <div class="interest-container">
         <h1 class="has-text-centered">Interests:</h1>
-        <div class="control checkboxes">
+        <div class="control checkboxes has-text-centered">
             <span>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.music"> <label>Music</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.outdoors"> <label>Outdoors</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.gaming"> <label>Gaming</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.nature"> <label>Nature</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.art"> <label>Art</label><br>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.sports"> <label>Sports</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.nightlife"> <label>Nightlife</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.food"> <label>Food</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.history"> <label>History</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.science_technology"> <label>Science/Technology</label><br>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.culture"> <label>Culture</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.fashion"> <label>Fashion</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.books"> <label>Books</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.movies"> <label>Movies</label>
-                <input type="checkbox" name="savedinterest" [(ngModel)]="form.health_wellness"> <label>Health/Wellness</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.music"> <label>Music</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.outdoors"> <label>Outdoors</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.gaming"> <label>Gaming</label><br>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.nature"> <label>Nature</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.art"> <label>Art</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.sports"> <label>Sports</label><br>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.nightlife"> <label>Nightlife</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.food"> <label>Food</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.history"> <label>History</label><br>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.science_technology"> <label>Science/Tech</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.culture"> <label>Culture</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.fashion"> <label>Fashion</label><br>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.books"> <label>Books</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.movies"> <label>Movies</label>
+              <input type="checkbox" name="savedinterest" [(ngModel)]="form.health_wellness"> <label>Health/Wellness</label>
             </span>
         </div>
     </div>
     
     <div class="buttons is-centered">
-    <button class="button is-primary" type="submit">Submit</button>
+      <button class="button is-primary" type="submit">Submit</button>
     </div>
 
   </form>
+
+  <!-- <div class="alert-danger" *ngIf="savedinterest.errors && interestForm.submitted">
+    <div *ngIf="savedinterest.errors['required']">At least one interest is required</div>
+  </div> -->
         
 </div>
