@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
  declare var weatherWidget: any;//imports weather widget script file
  declare var initMap: any;
+ declare var runFindStuffMap: any;
 
 @Component({
   selector: 'app-itineraries',
@@ -30,6 +31,7 @@ export class ItinerariesComponent implements OnInit {
 
     new weatherWidget;//runs weather widget on init
     new initMap; //returns map
+    runFindStuffMap();//finds search based of parameters
   
   }
 
