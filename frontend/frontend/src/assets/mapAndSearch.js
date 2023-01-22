@@ -53,7 +53,7 @@ function findStuffMap(queryText) {
 
   const request = {
     location: pstn,
-    radius: '1000',
+    radius: '1400',
     type: [queryText]
   };
 
