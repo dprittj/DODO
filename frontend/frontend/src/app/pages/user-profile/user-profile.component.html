@@ -1,24 +1,83 @@
-<p>user-profile works!</p>
+<div class="main-container">
 
-<div class="card">
+    <div class="card">
     
-    <div class="search">
-      <input type="text" class="search-bar" placeholder="Search">
-      <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
-          width="1.5em" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
-          </path>
-        </svg></button>
-    </div>
-    <div class="weather loading">
-      <h2 class="city">Weather in Denver</h2>
-      <h1 class="temp"></h1>
-      <div class="flex">
-        <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
-        <div class="description">Cloudy</div>
+        <div class="search">
+          <input type="text" class="search-bar" placeholder="Search">
+          <button class="weatherButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
+              width="1.5em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+              </path>
+            </svg></button>
+        </div>
+        <div class="weather loading">
+          <h2 class="city">Weather in Denver</h2>
+          <h1 class="temp"></h1>
+          <div class="flex">
+            <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+            <div class="description">Cloudy</div>
+          </div>
+          <div class="humidity">Humidity: </div>
+          <div class="wind">Wind speed: </div>
+        </div>
       </div>
-      <div class="humidity">Humidity: </div>
-      <div class="wind">Wind speed: </div>
+
+    <div class="name-container">
+        <h1>Hello, {{currentUser.username}}</h1>
+        <h2>Location: {{currentUser.location}}</h2>
     </div>
-  </div>
+
+    <div class="links-container">
+        <form class="ngForm" (ngSubmit)="generateLink()">
+            <button class="button button1 is-link" type="submit">Generate Your DODO</button>
+        </form><br>
+        <form class="ngForm" (ngSubmit)="editInterestsLink()">
+            <button class="button button2 is-link" type="submit">Edit Interests</button>
+        </form><br>
+        <form class="ngForm" (ngSubmit)="itinerariesLink()">
+            <button class="button is-primary is-link" type="submit">Itineraries</button>
+        </form>
+
+    </div>
+
+    <div class="saved-interests-container">
+        <h1 class="has-text-centered">Interests:</h1>
+            <div class="has-text-centered">
+                <ul>
+                    <li [value]="interest" *ngFor="let interest of interests">• {{interest}}</li>
+                </ul>
+            </div>
+    </div>
+
+    <!-- <form class="ngForm" (ngSubmit)="addInterests()">
+        <div class="add-interests-container">
+            <h1 class="has-text-centered">Add more interests:</h1>
+            <div class="control checkboxes has-text-centered">
+                <span>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.music"> <label>Music</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.outdoors"> <label>Outdoors</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.gaming"> <label>Gaming</label><br>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.nature"> <label>Nature</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.art"> <label>Art</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.sports"> <label>Sports</label><br>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.nightlife"> <label>Nightlife</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.food"> <label>Food</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.history"> <label>History</label><br>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.science_technology"> <label>Science/Tech</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.culture"> <label>Culture</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.fashion"> <label>Fashion</label><br>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.books"> <label>Books</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.movies"> <label>Movies</label>
+                    <input type="checkbox" name="savedinterest" [(ngModel)]="form.health_wellness"> <label>Health/Wellness</label>
+                </span>
+            </div>
+        </div>
+
+        <div class="buttons is-centered">
+            <button class="button is-primary" type="submit">Submit</button>
+        </div>
+        
+        </form> -->
+
+</div>

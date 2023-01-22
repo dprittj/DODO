@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -49,7 +50,7 @@ export class BuildProfileComponent implements OnInit {
   
 
   buildProfile(): void {
-    console.log("Are we there yet?");
+    // console.log("Are we there yet?");
     const { 
       music,
       outdoors,
@@ -67,8 +68,8 @@ export class BuildProfileComponent implements OnInit {
       movies, 
       health_wellness 
     } = this.form;
-    console.log(this.form);
-    console.log("We're here");
+    // console.log(this.form);
+    // console.log("We're here");
     this._service.saveInterests(music,
       outdoors,
       gaming,
