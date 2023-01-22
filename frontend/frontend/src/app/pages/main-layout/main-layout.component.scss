@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    background-color: rgb(229, 242, 250);
 
     overflow: hidden;
 
@@ -35,4 +36,8 @@
     }
 
 
+}
+
+.navbar {
+    background: linear-gradient(to right, #94ddf4, #f6b3d9);
 }

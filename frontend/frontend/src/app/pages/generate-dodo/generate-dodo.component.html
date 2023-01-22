@@ -1,5 +1,26 @@
 <div class="main-container">
-
+    <div class="card">
+    
+        <div class="search">
+          <input type="text" class="search-bar" placeholder="Search">
+          <button class="weatherButton"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
+              width="1.5em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+              </path>
+            </svg></button>
+        </div>
+        <div class="weather loading">
+          <h2 class="city">Weather in Denver</h2>
+          <h1 class="temp"></h1>
+          <div class="flex">
+            <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
+            <div class="description">Cloudy</div>
+          </div>
+          <div class="humidity">Humidity: </div>
+          <div class="wind">Wind speed: </div>
+        </div>
+      </div>
     <div class="generate-text-box">
         <h1 class="has-text-centered">
             Generate a Dodo:
@@ -8,36 +29,33 @@
 
     <form class="ngForm" (ngSubmit)="generate()">
 
-        <div class="timeAvailable" [(ngModel)]="form.timeAvailable" name="timeAvailable">
+        <div class="travelDistance" >
             <div class="control has-icons-left">
                 <div class="select is-medium">
                 <select>
-                    <option selected>Time Available</option>
-                    <option>2 hours</option>
-                    <option>4 hours</option>
-                    <option>6 hours</option>
-                    <option>8 hours</option>
-                    <option>No Time Limit</option>
+                    <input class="input"placeholder="travelDistance" name="travelDistance" [(ngModel)]="form.travelDistance">
+                    <option selected>How Far are you willing to Travel?</option>
+                    <option value="2">Less than 2 miles</option>
+                    <option value="10">Less than 10 miles</option>
+                    <option value="20">Less than 20 miles</option>
+                    <option value="30">Less than 30 miles</option>
                 </select>
                 </div>
                 <span class="icon is-medium is-left">
-                    <i class="fa-regular fa-clock"></i>
+                    <i class="fa-solid fa-car-on"></i>
                 </span>
             </div>
         </div>
 
-        <div class="priceRange" [(ngModel)]="form.priceRange" name="priceRange">
+        <div class="priceRange">
             <div class="control has-icons-left">
                 <div class="select is-medium">
                 <select>
+                    <input class="input"placeholder="priceRange" [(ngModel)]="form.priceRange" name="priceRange">
                     <option selected>Price Range</option>
-                    <option>Free</option>
-                    <option>Under $25</option>
-                    <option>Under $50</option>
-                    <option>Under $75</option>
-                    <option>Under $100</option>
-                    <option>Under $150</option>
-                    <option>No Price Limit</option>
+                    <option value="$">$</option>
+                    <option value="$$">$$</option>
+                    <option value="$$$">$$$</option>
                 </select>
                 </div>
                 <span class="icon is-medium is-left">
@@ -46,39 +64,35 @@
             </div>
         </div>
 
-        <div class="numberOfDodos" [(ngModel)]="form.numberOfDodos" name="numberOfDodos">
+        <div class="numberOfDodos" >
           <div class="control has-icons-left">
             <div class="select is-medium">
               <select>
-                <option selected>Number of Itinerary Items</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <input class="input"placeholder="priceRange" [(ngModel)]="form.numberOfDodos" name="numberOfDodos">
+                <option selected>Number of Events / Time Available</option>
+                <option value="1">1 item: Up to 2 hours Available</option>
+                <option value="2">2 items: Up to 4 hours Available</option>
+                <option value="3">3 items: Up to 6 hours Available</option>
+                <option value="4">4 items: Up to 8 hours Available</option>
               </select>
             </div>
             <span class="icon is-medium is-left">
-                <i class="fa-solid fa-car-on"></i>
+                <i class="fa-regular fa-clock"></i>
             </span>
           </div>
         </div>
 
-        <div class="referenceInterests" [(ngModel)]="form.referenceInterests" name="referenceInterests">
+        <div class="referenceInterests">
             <div class="control" >
-                <label>Would you like Dodo to reference your personal interests? </label>
-                <label class="radio">
-                <input type="radio" name="savedInterests" checked>
-                Yes
-                </label>
-                <label class="radio">
-                <input type="radio" name="savedInterests">
-                No
-                </label>
+                <h1 class="has-text-centered">Would you like Dodo to reference your personal interests?</h1>
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="form.referenceInterests" name="referenceInterests">
+                    Use my personal interests from my profile
+                  </label>
             </div>
         </div>
 
-        <div class="addMoreInterests" [(ngModel)]="form.addMoreInterests" name="addMoreInterests">
+        <div class="addMoreInterests">
             <div class="interest-container">
                 <h1 class="has-text-centered"> Add Additional Interests:</h1>
                 <div class="control checkboxes">
@@ -105,7 +119,6 @@
   
 
       
-                <!--the "save button is disables when the form is not valid!"-->
      <button class="button is-primary" id="submitButton" type="submit">Generate</button>
     
     </form>

@@ -1,1 +1,84 @@
-<p>submitpoi works!</p>
+
+<div class="main-container">
+
+    <div class="signup-text-box">
+        <h1 class="has-text-centered">
+            Submit a Point of Interest:
+        </h1>
+    </div>
+
+    <form *ngIf="!isSuccessful" #submitPoiForm="ngForm" (ngSubmit)="submitpoi()">
+
+        <div class="name-container">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="text" placeholder="Name" name="nameOfPoi" [(ngModel)]="form.nameOfPoi" required class="input" required minlength="5" maxlength="30" #nameOfPoi="ngModel">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <div class="alert-danger" *ngIf="nameOfPoi.errors && submitPoiForm.submitted">
+                <div *ngIf="nameOfPoi.errors['required']">Name is required</div>
+                <div *ngIf="nameOfPoi.errors['minlength']">Name must be at least 5 characters</div>
+                <div *ngIf="nameOfPoi.errors['maxlength']">Name must be 30 characters or less</div>
+              </div>
+        </div>
+        
+      <div class="address-container">
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="text" placeholder="Address" name="address" [(ngModel)]="form.address" required minlength="5" maxlength="50" required class="input" 
+               #address="ngModel">
+              <span class="icon is-small is-left">
+                <i class="fa-solid fa-crow"></i>
+              </span>
+              <div class="alert-danger" *ngIf="address.errors && submitPoiForm.submitted">
+                <div *ngIf="address.errors['required']">Address is required</div>
+                <div *ngIf="address.errors['minlength']">Address must be at least 5 characters</div>
+                <div *ngIf="address.errors['maxlength']">Address must be 50 characters or less</div>
+              </div>
+          </div>
+        </div>
+
+        <div class="businessHours-container">
+          <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Business Hours" name="businessHours" [(ngModel)]="form.businessHours" required class="input" #businessHours="ngModel">
+                <span class="icon is-small is-left">
+                  <i class="fa-solid fa-location-dot"></i>
+                </span>
+                <div class="alert-danger" *ngIf="businessHours.errors && submitPoiForm.submitted">
+                  <div *ngIf="businessHours.errors['required']">Business Hours are required</div>
+                </div>
+            </div>
+          </div>
+    
+            <div class="addMoreInterests">
+                <div class="interest-container">
+                    <h1 class="has-text-centered"> Add Interests to Tag:</h1>
+                    <div class="control checkboxes">
+                        <span>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.music"> <label>Music</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.outdoors"> <label>Outdoors</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.gaming"> <label>Gaming</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.nature"> <label>Nature</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.art"> <label>Art</label><br>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.sports"> <label>Sports</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.nightlife"> <label>Nightlife</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.food"> <label>Food</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.history"> <label>History</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.science_technology"> <label>Science/Technology</label><br>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.culture"> <label>Culture</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.fashion"> <label>Fashion</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.books"> <label>Books</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.movies"> <label>Movies</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="form.health_wellness"> <label>Health/Wellness</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+                <!--the "save button is disables when the form is not valid!"-->
+     <button class="button is-primary" id="submitButton" type="submit">Submit Point of Interest</button>
+    
+    </form> 
+   
+</div>

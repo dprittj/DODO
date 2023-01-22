@@ -7,6 +7,8 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
 
 
 
+declare var weatherWidget: any;//imports weather widget script file
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -65,6 +67,9 @@ export class UserProfileComponent implements OnInit {
       this._route.navigateByUrl('/login');
     }
     this.currentUser = this.token.getUser();
+
+    new weatherWidget;//runs weather widget on init
+    
   }
 
   generateLink(): void {
