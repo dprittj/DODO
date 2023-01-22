@@ -42,6 +42,7 @@
 //  since this field is required! if line 11 was absent, 
 //  the whole form would be red.
 input, textarea {
+    
     &.ng-invalid.ng-touched {
         border-color: red;
         
