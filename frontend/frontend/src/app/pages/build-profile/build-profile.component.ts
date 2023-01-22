@@ -13,21 +13,21 @@ import { TokenStorageService } from 'src/app/shared/services/token-storage.servi
 export class BuildProfileComponent implements OnInit {
 
   form: any = {
-    music: null,
-    outdoors: null,
-    gaming: null,
-    nature: null,
-    art: null,
-    sports: null,
-    nightlife: null,
-    food: null,
-    history: null,
-    science_technology: null,
-    culture: null,
-    fashion: null,
-    books: null,
-    movies: null,
-    health_wellness: null
+    music: false,
+    outdoors: false,
+    gaming: false,
+    nature: false,
+    art: false,
+    sports: false,
+    nightlife: false,
+    food: false,
+    history: false,
+    science_technology: false,
+    culture: false,
+    fashion: false,
+    books: false,
+    movies: false,
+    health_wellness: false
   }
 
   //added below ngOnInit method for authorization by checking for token
@@ -50,7 +50,6 @@ export class BuildProfileComponent implements OnInit {
   
 
   buildProfile(): void {
-    // console.log("Are we there yet?");
     const { 
       music,
       outdoors,
@@ -68,8 +67,7 @@ export class BuildProfileComponent implements OnInit {
       movies, 
       health_wellness 
     } = this.form;
-    // console.log(this.form);
-    // console.log("We're here");
+    console.log(this.form);
     this._service.saveInterests(music,
       outdoors,
       gaming,
