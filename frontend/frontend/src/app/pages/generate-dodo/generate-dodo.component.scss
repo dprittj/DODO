@@ -91,16 +91,20 @@
 }
 #submitButton {
     width: 500px;
+    height: 68px;
+    background: $purple;
+    margin-bottom: 50px;
 }
 
 
 .card {
-    background: #000000d0;
+    background: $blue;
     color: white;
     padding: 2em;
     border-radius: 30px;
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
+    margin-bottom: 50px;
     margin: 1em;
     float: right;
   }
@@ -111,7 +115,7 @@
     justify-content: center;
   }
   
-  button {
+  .weatherButton {
     margin: 0.5em;
     border-radius: 50%;
     border: none;
