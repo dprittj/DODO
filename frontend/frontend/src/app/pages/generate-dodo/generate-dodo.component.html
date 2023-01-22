@@ -29,36 +29,33 @@
 
     <form class="ngForm" (ngSubmit)="generate()">
 
-        <div class="timeAvailable" [(ngModel)]="form.timeAvailable" name="timeAvailable">
+        <div class="travelDistance" >
             <div class="control has-icons-left">
                 <div class="select is-medium">
                 <select>
-                    <option selected>Time Available</option>
-                    <option>2 hours</option>
-                    <option>4 hours</option>
-                    <option>6 hours</option>
-                    <option>8 hours</option>
-                    <option>No Time Limit</option>
+                    <input class="input"placeholder="travelDistance" name="travelDistance" [(ngModel)]="form.travelDistance">
+                    <option selected>How Far are you willing to Travel?</option>
+                    <option>Less than 2 miles</option>
+                    <option>Less than 10 miles</option>
+                    <option>Less than 20 miles</option>
+                    <option>Less than 30 miles</option>
                 </select>
                 </div>
                 <span class="icon is-medium is-left">
-                    <i class="fa-regular fa-clock"></i>
+                    <i class="fa-solid fa-car-on"></i>
                 </span>
             </div>
         </div>
 
-        <div class="priceRange" [(ngModel)]="form.priceRange" name="priceRange">
+        <div class="priceRange">
             <div class="control has-icons-left">
                 <div class="select is-medium">
                 <select>
+                    <input class="input"placeholder="priceRange" [(ngModel)]="form.priceRange" name="priceRange">
                     <option selected>Price Range</option>
-                    <option>Free</option>
-                    <option>Under $25</option>
-                    <option>Under $50</option>
-                    <option>Under $75</option>
-                    <option>Under $100</option>
-                    <option>Under $150</option>
-                    <option>No Price Limit</option>
+                    <option>$</option>
+                    <option>$$</option>
+                    <option>$$$</option>
                 </select>
                 </div>
                 <span class="icon is-medium is-left">
@@ -67,39 +64,35 @@
             </div>
         </div>
 
-        <div class="numberOfDodos" [(ngModel)]="form.numberOfDodos" name="numberOfDodos">
+        <div class="numberOfDodos" >
           <div class="control has-icons-left">
             <div class="select is-medium">
               <select>
-                <option selected>Number of Itinerary Items</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <input class="input"placeholder="priceRange" [(ngModel)]="form.numberOfDodos" name="numberOfDodos">
+                <option selected>Number of Events / Time Available</option>
+                <option>1 item: Up to 2 hours Available</option>
+                <option>2 items: Up to 4 hours Available</option>
+                <option>3 items: Up to 6 hours Available</option>
+                <option>4 items: Up to 8 hours Available</option>
               </select>
             </div>
             <span class="icon is-medium is-left">
-                <i class="fa-solid fa-car-on"></i>
+                <i class="fa-regular fa-clock"></i>
             </span>
           </div>
         </div>
 
-        <div class="referenceInterests" [(ngModel)]="form.referenceInterests" name="referenceInterests">
+        <div class="referenceInterests">
             <div class="control" >
-                <label>Would you like Dodo to reference your personal interests? </label>
-                <label class="radio">
-                <input type="radio" name="savedInterests" checked>
-                Yes
-                </label>
-                <label class="radio">
-                <input type="radio" name="savedInterests">
-                No
-                </label>
+                <h1 class="has-text-centered">Would you like Dodo to reference your personal interests?</h1>
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="form.referenceInterests" name="referenceInterests">
+                    Use my personal interests from my profile
+                  </label>
             </div>
         </div>
 
-        <div class="addMoreInterests" [(ngModel)]="form.addMoreInterests" name="addMoreInterests">
+        <div class="addMoreInterests">
             <div class="interest-container">
                 <h1 class="has-text-centered"> Add Additional Interests:</h1>
                 <div class="control checkboxes">
