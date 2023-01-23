@@ -13,7 +13,7 @@
             <p class="control has-icons-left has-icons-right">
               <input class="input" type="text" placeholder="Name" name="nameOfPoi" [(ngModel)]="form.nameOfPoi" required class="input" required minlength="5" maxlength="30" #nameOfPoi="ngModel">
               <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
+                <i class="fa-solid fa-crow"></i>
               </span>
               <div class="alert-danger" *ngIf="nameOfPoi.errors && submitPoiForm.submitted">
                 <div *ngIf="nameOfPoi.errors['required']">Name is required</div>
@@ -28,7 +28,7 @@
               <input class="input" type="text" placeholder="Address" name="address" [(ngModel)]="form.address" required minlength="5" maxlength="50" required class="input" 
                #address="ngModel">
               <span class="icon is-small is-left">
-                <i class="fa-solid fa-crow"></i>
+                <i class="fa-solid fa-location-dot"></i>
               </span>
               <div class="alert-danger" *ngIf="address.errors && submitPoiForm.submitted">
                 <div *ngIf="address.errors['required']">Address is required</div>
@@ -43,7 +43,7 @@
               <p class="control has-icons-left has-icons-right">
                 <input class="input" type="text" placeholder="Business Hours" name="businessHours" [(ngModel)]="form.businessHours" required class="input" #businessHours="ngModel">
                 <span class="icon is-small is-left">
-                  <i class="fa-solid fa-location-dot"></i>
+                  <i class="fa-regular fa-clock"></i>
                 </span>
                 <div class="alert-danger" *ngIf="businessHours.errors && submitPoiForm.submitted">
                   <div *ngIf="businessHours.errors['required']">Business Hours are required</div>
