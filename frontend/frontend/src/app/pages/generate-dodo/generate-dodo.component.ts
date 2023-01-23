@@ -13,10 +13,10 @@ declare var weatherWidget: any;//imports weather widget script file
 export class GenerateDodoComponent implements OnInit {
 
   form2: any ={
-    timeAvailable: null,
+    travelDistance: null,
     priceRange: null,
     numberOfDodos: null,
-    referenceInterests: null,
+    // referenceInterests: null,
     addMoreInterests: null,
   }
 
