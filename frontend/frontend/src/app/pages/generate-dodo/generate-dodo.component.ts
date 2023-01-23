@@ -63,7 +63,7 @@ export class GenerateDodoComponent implements OnInit {
     let selections = [];
     let keyList = Object.keys(this.form);
     for(let i = 0; i < keyList.length; i++) {
-      console.log(this.form[keyList[i]]);
+      // console.log(this.form[keyList[i]]);
       if(this.form[keyList[i]] == true) {
         selections.push(keyList[i]);
       }

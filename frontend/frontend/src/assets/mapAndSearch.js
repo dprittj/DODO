@@ -22,7 +22,7 @@ function initMap() {
         };
         pstn = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         infoWindow.setPosition(pos);
-        infoWindow.setContent("Location found.");
+        infoWindow.setContent("Your location.");
         infoWindow.open(map);
         map.setCenter(pos);
       },
@@ -95,9 +95,16 @@ function findStuffMap(queryText, service) {//searches based on tags and diplays 
 
   service.nearbySearch(request, (results, status) => {
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-      for (let x = 0; x < results.length; x++) {
-        createMarker(results[x]);
-      }
+      // for (let x = 0; x < results.length; x++) {
+        let place =results[Math.floor(Math.random()*results.length)];
+        console.log(place);
+        let name=place.name;
+
+        //call function that builds the itinery div html whatever
+        createMarker(place);
+        
+        console.log(name);
+      // }
 
       map.setZoom(14);
     }
@@ -115,6 +122,7 @@ function createMarker(place) {
   google.maps.event.addListener(marker, "click", () => {
     infoWindow.setPosition(place.geometry.location);
     var content = place.name +  '<br>' + place.vicinity 
+    // console.log(place.name);
     infoWindow.setContent(content || "");
     infoWindow.open(map);
   });
