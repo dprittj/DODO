@@ -12,11 +12,15 @@ declare var weatherWidget: any;//imports weather widget script file
 })
 export class GenerateDodoComponent implements OnInit {
 
-  form: any ={
-    travelDistance: null,
+  form2: any ={
+    timeAvailable: null,
     priceRange: null,
     numberOfDodos: null,
     referenceInterests: null,
+    addMoreInterests: null,
+  }
+
+  form: any = {
     music: null,
     outdoors: null,
     gaming: null,
@@ -55,6 +59,17 @@ export class GenerateDodoComponent implements OnInit {
   
   }
 
-  generate() {}
+  generate(): void {
+    let selections = [];
+    let keyList = Object.keys(this.form);
+    for(let i = 0; i < keyList.length; i++) {
+      console.log(this.form[keyList[i]]);
+      if(this.form[keyList[i]] == true) {
+        selections.push(keyList[i]);
+      }
+    }
+    console.log(selections);
+    this._route.navigate(['/itineraries'], {queryParams: {query: selections.join('&')}});
+  }
 
 }
