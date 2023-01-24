@@ -21,11 +21,11 @@ export class GenerateDodoComponent implements OnInit {
   }
 
   form: any = {
-    travelDistance: null,
-    priceRange: null,
-    numberOfDodos: null,
-    // referenceInterests: null,
-    addMoreInterests: null,
+    // travelDistance: null,
+    // priceRange: null,
+    // numberOfDodos: null,
+    // // referenceInterests: null,
+    // addMoreInterests: null,
     music: null,
     outdoors: null,
     gaming: null,
@@ -73,12 +73,15 @@ export class GenerateDodoComponent implements OnInit {
         selections.push(keyList[x]);
       }
     }
-    // console.log(selections);
-    let valueList = Object.values(this.form2);
+    console.log();
     let formValues=[];
+    let valueList = Object(this.form2);
     console.log(valueList);
     // for(let x =0; x<valueList.length; x++){
-    //   if(this.form2[valueList[x]] == true)
+      // if(this.form2[valueList[x]] == true){
+        // formValues.push(this.form2[valueList[x]]);
+      // }
+      console.log(valueList);
     // }
 
     this._route.navigate(['/itineraries'], {queryParams: {query: selections.join('&')}});
