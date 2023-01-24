@@ -21,6 +21,11 @@ export class GenerateDodoComponent implements OnInit {
   }
 
   form: any = {
+    travelDistance: null,
+    priceRange: null,
+    numberOfDodos: null,
+    // referenceInterests: null,
+    addMoreInterests: null,
     music: null,
     outdoors: null,
     gaming: null,
