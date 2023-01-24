@@ -72,20 +72,28 @@ function runFindStuffMap() {
     let pair = vars[x].split('=');
     if(pair[0] == 'query') {
       let queryArray = pair[1].split('%26');
+      let tagArray=[];
+      let queryText;
       // console.log(queryArray);
       for(let x = 0; x < queryArray.length; x++) {
         // console.log('one: ' + queryArray[x]);
         for(let y = 0; y < translator[queryArray[x]].length; y++) {
           // console.log('two: ' + translator[queryArray[x]][y]);
-          findStuffMap(translator[queryArray[x]][y], service);
+          tagArray=tagArray.concat(translator[queryArray[x]][y]);
+          console.log(tagArray);
+          
         }
       }
+
+      queryText=tagArray[Math.floor(Math.random() * tagArray.length)];//grabs random tag
+      console.log(queryText);
+      findStuffMap(queryText, service);
     }
   }
 }
 function findStuffMap(queryText, service) {//searches based on tags and diplays on map
 
-  //console.log(queryText);
+  // console.log(queryText);
 
   const request = {
     location: pstn,
@@ -96,8 +104,8 @@ function findStuffMap(queryText, service) {//searches based on tags and diplays 
   service.nearbySearch(request, (results, status) => {
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
       // for (let x = 0; x < results.length; x++) {
-        let place =results[Math.floor(Math.random()*results.length)];
-        console.log(place);
+        let place =results[Math.floor(Math.random() * results.length)]; //returns a random result generated from single tag
+        // console.log(place);
         let name=place.name;
 
         //call function that builds the itinery div html whatever
@@ -106,8 +114,12 @@ function findStuffMap(queryText, service) {//searches based on tags and diplays 
         console.log(name);
       // }
 
-      map.setZoom(14);
-    }
+      map.setZoom(12);
+      // var bounds = new google.maps.LatLngBounds();
+      // bounds.extend(pstn);
+      // bounds.extend(place);
+      // map.fitBounds(bounds);
+    } else{alert("No locations Found")};
   });
 }
 

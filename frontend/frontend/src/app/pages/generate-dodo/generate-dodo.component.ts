@@ -68,7 +68,7 @@ export class GenerateDodoComponent implements OnInit {
         selections.push(keyList[i]);
       }
     }
-    console.log(selections);
+    // console.log(selections);
     this._route.navigate(['/itineraries'], {queryParams: {query: selections.join('&')}});
   }
 
