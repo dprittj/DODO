@@ -67,13 +67,20 @@ export class GenerateDodoComponent implements OnInit {
   generate(): void {
     let selections = [];
     let keyList = Object.keys(this.form);
-    for(let i = 0; i < keyList.length; i++) {
+    for(let x = 0; x < keyList.length; x++) {
       // console.log(this.form[keyList[i]]);
-      if(this.form[keyList[i]] == true) {
-        selections.push(keyList[i]);
+      if(this.form[keyList[x]] == true) {
+        selections.push(keyList[x]);
       }
     }
     // console.log(selections);
+    let valueList = Object.values(this.form2);
+    let formValues=[];
+    console.log(valueList);
+    // for(let x =0; x<valueList.length; x++){
+    //   if(this.form2[valueList[x]] == true)
+    // }
+
     this._route.navigate(['/itineraries'], {queryParams: {query: selections.join('&')}});
   }
 
