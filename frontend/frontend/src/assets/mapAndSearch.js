@@ -80,13 +80,13 @@ function runFindStuffMap() {
         for(let y = 0; y < translator[queryArray[x]].length; y++) {
           // console.log('two: ' + translator[queryArray[x]][y]);
           tagArray=tagArray.concat(translator[queryArray[x]][y]);
-          console.log(tagArray);
+          // console.log(tagArray);
           
         }
       }
 
       queryText=tagArray[Math.floor(Math.random() * tagArray.length)];//grabs random tag
-      console.log(queryText);
+      // console.log(queryText);
       findStuffMap(queryText, service);
     }
   }
