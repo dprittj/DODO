@@ -17,7 +17,7 @@ export class GenerateDodoComponent implements OnInit {
     priceRange: null,
     numberOfDodos: null,
     // referenceInterests: null,
-    addMoreInterests: null,
+    // addMoreInterests: null,
   }
 
   form: any = {
@@ -77,13 +77,9 @@ export class GenerateDodoComponent implements OnInit {
     let formValues=[];
     let valueList = Object(this.form2);
     console.log(valueList);
-    // for(let x =0; x<valueList.length; x++){
-      // if(this.form2[valueList[x]] == true){
-        // formValues.push(this.form2[valueList[x]]);
-      // }
-      console.log(valueList);
-    // }
+    
 
+    
     this._route.navigate(['/itineraries'], {queryParams: {query: selections.join('&')}});
   }
 
