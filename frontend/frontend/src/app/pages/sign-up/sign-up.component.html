@@ -71,11 +71,12 @@
         <div class="verify-password-container">
             <div class="field">
                 <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Verify Password" name="verify-password" [(ngModel)]="form.verifyPassword" pattern="!verifyPassword.value == password.value" required class="input" required #password="ngModel" #verifyPassword="ngModel">
+                  <input class="input" type="password" placeholder="Verify Password" name="verify-password" [(ngModel)]="form.verifyPassword" pattern="{{ password.value }}" required class="input" required #password="ngModel" #verifyPassword="ngModel">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
                   <div class="alert-danger" *ngIf="verifyPassword.errors && userForm.submitted">
+                    <div *ngIf="verifyPassword.errors['required']">Verify Password is required</div>
                     <div *ngIf="verifyPassword.errors['pattern']">Verify Password is required and must match Password.</div>
                   </div>
            </div>
