@@ -66,8 +66,16 @@ function runFindStuffMap() {
     health_wellness: ['spa', 'park', 'beauty_salon', 'hair_care']
   }
   let query = window.location.search.substring(1);//pulls tags from url to be used to sort in above
-  let radius = window.location.search.substring(1);
+  let params = new URLSearchParams(location.search);
+  
+
+  let radius = params.get('travelDistance');
   console.log(radius);
+  let priceRange = params.get('priceRange')
+  console.log(priceRange);
+  let itineryItems = params.get('itineraryItems');
+  console.log(itineryItems);
+
   let vars = query.split('&');
   let service = new google.maps.places.PlacesService(map);
   for(let x = 0; x < vars.length; x++) {
@@ -89,17 +97,18 @@ function runFindStuffMap() {
 
       queryText=tagArray[Math.floor(Math.random() * tagArray.length)];//grabs random tag
       // console.log(queryText);
-      findStuffMap(queryText, service);
+      findStuffMap(queryText, radius, priceRange, service);
     }
   }
 }
-function findStuffMap(queryText, service) {//searches based on tags and diplays on map
+function findStuffMap(queryText, radius, priceRange, service) {//searches based on tags and diplays on map
 
   // console.log(queryText);
 
   const request = {
     location: pstn,
-    radius: '1000',
+    radius: radius,
+    maxprice: priceRange,
     type: queryText
   };
 

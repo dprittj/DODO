@@ -21,107 +21,86 @@
           <div class="wind">Wind speed: </div>
         </div>
       </div>
-    <div class="generate-text-box">
-        <h1 class="has-text-centered">
-            Generate a Dodo:
-        </h1>
-    </div>
+      <div class="main-container">
 
-    <form class="ngForm" (ngSubmit)="generate()">
-
-        <div class="travelDistance" >
-            <div class="control has-icons-left">
+        <div class="generate-text-box">
+            <h1 class="has-text-centered">
+                Generate a Dodo:
+            </h1>
+        </div>
+    
+        <form class="ngForm" (ngSubmit)="generate()">
+    
+            <div class="travelDistance" [(ngModel)]="form.travelDistance" name="travelDistance">
+                <div class="control has-icons-left">
+                    <div class="select is-medium">
+                    <select #ta (change)="travelDistanceChanged(ta.value)">
+                        <option *ngFor="let t of travelDistance" [ngValue]="t" value={{t.value}}>{{t.name}}</option>
+                    </select>
+                    </div>
+                    <span class="icon is-medium is-left">
+                        <i class="fa-regular fa-clock"></i>
+                    </span>
+                </div>
+            </div>
+    
+            <div class="priceRange" [(ngModel)]="form.priceRange" name="priceRange">
+                <div class="control has-icons-left">
+                    <div class="select is-medium">
+                    <select #pr (change)="priceRangeChanged(pr.value)">
+                        <option *ngFor="let p of priceRanges" [ngValue]="p" value={{p.value}}>{{p.name}}</option>
+                    </select>
+                    </div>
+                    <span class="icon is-medium is-left">
+                        <i class="fa-regular fa-money-bill-1"></i>
+                    </span>
+                </div>
+            </div>
+    
+            <div class="numberOfDodos" [(ngModel)]="form.numberOfDodos" name="numberOfDodos">
+              <div class="control has-icons-left">
                 <div class="select is-medium">
-                <select>
-                    <input class="input"placeholder="travelDistance" name="travelDistance" [(ngModel)]="form2.travelDistance">
-                    <option selected>How Far are you willing to Travel?</option>
-                    <option value="3219">Less than 2 miles</option>
-                    <!-- Values set to meters so I dont have to convert them somewhere -->
-                    <option value="16094">Less than 10 miles</option>
-                    <option value="32187">Less than 20 miles</option>
-                    <option value="49000">Less than 30 miles</option>
-                </select>
+                  <select #dodo (change)="dodoChanged(dodo.value)">
+                    <option *ngFor="let d of dodos" [ngValue]="d" value={{d.value}}>{{d.name}}</option>
+                  </select>
                 </div>
                 <span class="icon is-medium is-left">
                     <i class="fa-solid fa-car-on"></i>
                 </span>
+              </div>
             </div>
-        </div>
-
-        <div class="priceRange">
-            <div class="control has-icons-left">
-                <div class="select is-medium">
-                <select>
-                    <input class="input"placeholder="priceRange" [(ngModel)]="form2.priceRange" name="priceRange">
-                    <option selected value="0">Price Range</option>
-                    <option value="1">$</option>
-                    <option value="2">$$</option>
-                    <option value="4">$$$</option>
-                </select>
-                </div>
-                <span class="icon is-medium is-left">
-                    <i class="fa-regular fa-money-bill-1"></i>
-                </span>
-            </div>
-        </div>
-
-        <div class="numberOfDodos" >
-          <div class="control has-icons-left">
-            <div class="select is-medium">
-              <select>
-                <input class="input"placeholder="numberOfDodos" [(ngModel)]="form2.numberOfDodos" name="numberOfDodos">
-                <option selected value="0">Number of Events / Time Available</option>
-                <option value="1">1 item: Up to 2 hours Available</option>
-                <option value="2">2 items: Up to 4 hours Available</option>
-                <option value="3">3 items: Up to 6 hours Available</option>
-                <option value="4">4 items: Up to 8 hours Available</option>
-              </select>
-            </div>
-            <span class="icon is-medium is-left">
-                <i class="fa-regular fa-clock"></i>
-            </span>
-          </div>
-        </div>
-
-        <!-- <div class="referenceInterests">
-            <div class="control" >
-                <h1 class="has-text-centered">Would you like Dodo to reference your personal interests?</h1>
-                <label class="checkbox">
-                    <input type="checkbox" [(ngModel)]="form.referenceInterests" name="referenceInterests">
-                    Use my personal interests from my profile
-                  </label>
-            </div>
-        </div> -->
-
-        <div class="addMoreInterests">
-            <div class="interest-container">
-                <h1 class="has-text-centered"> Select Interests for your Dodo:</h1>
-                <div class="control checkboxes">
-                    <span>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.music"> <label>Music</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.outdoors"> <label>Outdoors</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.gaming"> <label>Gaming</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.nature"> <label>Nature</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.art"> <label>Art</label><br>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.sports"> <label>Sports</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.nightlife"> <label>Nightlife</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.food"> <label>Food</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.history"> <label>History</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.science_technology"> <label>Science/Technology</label><br>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.culture"> <label>Culture</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.fashion"> <label>Fashion</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.books"> <label>Books</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.movies"> <label>Movies</label>
-                        <input type="checkbox" name="savedinterest" [(ngModel)]="form.health_wellness"> <label>Health/Wellness</label>
-                    </span>
-                </div>
-            </div>
-        </div>
-  
-
-      
-     <button class="button is-primary" id="submitButton" type="submit">Generate</button>
     
-    </form>
-   
-</div>
+            <div class="addMoreInterests" name="addMoreInterests">
+                <div class="interest-container">
+                    <h1 class="has-text-centered"> Add Additional Interests:</h1>
+                    <div class="control checkboxes">
+                        <span>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.music"> <label>Music</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.outdoors"> <label>Outdoors</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.gaming"> <label>Gaming</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.nature"> <label>Nature</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.art"> <label>Art</label><br>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.sports"> <label>Sports</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.nightlife"> <label>Nightlife</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.food"> <label>Food</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.history"> <label>History</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.science_technology"> <label>Science/Technology</label><br>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.culture"> <label>Culture</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.fashion"> <label>Fashion</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.books"> <label>Books</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.movies"> <label>Movies</label>
+                            <input type="checkbox" name="savedinterest" [(ngModel)]="interests.health_wellness"> <label>Health/Wellness</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+      
+    
+          
+                    <!--the "save button is disables when the form is not valid!"-->
+         <button class="button is-primary" id="submitButton" type="submit">Generate</button>
+        
+        </form>
+       
+    </div>
+    
