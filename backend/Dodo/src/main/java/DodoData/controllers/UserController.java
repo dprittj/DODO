@@ -5,7 +5,7 @@ import DodoData.dto.JwtResponse;
 import DodoData.dto.LoginFormDTO;
 import DodoData.dto.MessageResponse;
 import DodoData.dto.RegisterUserDTO;
-import DodoData.models.DodoRepos.InterestsTypeRepository;
+import DodoData.models.DodoRepos.ItineraryRepo;
 import DodoData.models.DodoRepos.RoleRepository;
 import DodoData.models.DodoRepos.UserRepository;
 import DodoData.models.ERole;
@@ -39,7 +39,7 @@ public class UserController {
     AuthenticationManager authenticationManager;
 
     @Autowired
-    InterestsTypeRepository interestsTypeRepository;
+    ItineraryRepo itineraryRepo;
 
     @Autowired
     UserRepository userRepository;
