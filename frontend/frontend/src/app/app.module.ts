@@ -15,6 +15,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { GenerateDodoComponent } from './pages/generate-dodo/generate-dodo.component';
 import { ItinerariesComponent } from './pages/itineraries/itineraries.component';
 import { SubmitpoiComponent } from './pages/submitpoi/submitpoi.component';
+import { ItineraryCardComponent } from './itinerary-card/itinerary-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SubmitpoiComponent } from './pages/submitpoi/submitpoi.component';
     UserProfileComponent,
     GenerateDodoComponent,
     ItinerariesComponent,
-    SubmitpoiComponent
+    SubmitpoiComponent,
+    ItineraryCardComponent
   ],
   imports: [
     BrowserModule,
