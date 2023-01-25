@@ -13,9 +13,9 @@ declare var weatherWidget: any;//imports weather widget script file
 export class GenerateDodoComponent implements OnInit {
 
   form2: any ={
-    travelDistance: null,
-    priceRange: null,
-    numberOfDodos: null,
+    travelDistance: "5000",
+    priceRange: "1",
+    numberOfDodos: "2",
     // referenceInterests: null,
     // addMoreInterests: null,
   }
@@ -63,8 +63,15 @@ export class GenerateDodoComponent implements OnInit {
     new weatherWidget;//runs weather widget on init
   
   }
-
+  
+  // changeDist(event: any) {
+  //   this.form2.getName("travelDistance").setValue(event.target.value, {
+  //     onlySelf: true,
+  //   });
+  // }
   generate(): void {
+
+    
     let selections = [];
     let keyList = Object.keys(this.form);
     for(let x = 0; x < keyList.length; x++) {
@@ -80,7 +87,7 @@ export class GenerateDodoComponent implements OnInit {
     
 
     
-    this._route.navigate(['/itineraries'], {queryParams: {query: selections.join('&')}});
+    this._route.navigate(['/itineraries'], {queryParams:{dist: this.form2.travelDistance, price: this.form2.priceRange, items: this.form2.numberOfDodos  ,query: selections.join('&') }});
   }
 
 }

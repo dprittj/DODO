@@ -66,6 +66,8 @@ function runFindStuffMap() {
     health_wellness: ['spa', 'park', 'beauty_salon', 'hair_care']
   }
   let query = window.location.search.substring(1);//pulls tags from url to be used to sort in above
+  let radius = window.location.search.substring(1);
+  console.log(radius);
   let vars = query.split('&');
   let service = new google.maps.places.PlacesService(map);
   for(let x = 0; x < vars.length; x++) {
@@ -74,7 +76,7 @@ function runFindStuffMap() {
       let queryArray = pair[1].split('%26');
       let tagArray=[];
       let queryText;
-      // console.log(queryArray);
+      console.log(queryArray);
       for(let x = 0; x < queryArray.length; x++) {
         // console.log('one: ' + queryArray[x]);
         for(let y = 0; y < translator[queryArray[x]].length; y++) {
