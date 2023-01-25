@@ -26,6 +26,9 @@ let weather = {
       document.querySelector(".icon").src =
         "https://openweathermap.org/img/wn/" + icon + ".png";
       document.querySelector(".description").innerText = description;
+      if(description.includes("rain") || description.includes("thunderstorm") || description.includes("snow")){
+        document.querySelector(".description").innerText = description + " WARNING! Inclement Weather";
+      }
       document.querySelector(".temp").innerText = Math.trunc(temp) + "°F";
       document.querySelector(".humidity").innerText =
         "Humidity: " + humidity + "%";
