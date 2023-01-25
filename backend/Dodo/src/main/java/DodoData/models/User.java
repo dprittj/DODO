@@ -29,6 +29,10 @@ public class User extends IdAbstract {
     @NotBlank
     private String pwHash;
 
+    @ManyToOne
+    @JoinColumn(name="itineraries_id")
+    private Itineraries itinerary;
+
     @ManyToMany(fetch =FetchType.LAZY)
     @JoinTable( name = "user_roles",
                 joinColumns = @JoinColumn(name = "user_id"),

@@ -7,13 +7,28 @@ import javax.persistence.*;
 @Table(name="Itineraries")
 public class Itineraries extends IdAbstract{
 
+//    @OneToMany
+////    @JoinTable(name="User", joinColumns =
+//    @JoinColumn(name="user_id")
+    String[] itinerary = new String[3];
+
     static String placeName;
 
     static String placeHours;
 
     static String placeAddress;
 
-    String[] itinerary = new String[3];
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private User user;
+//
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public Itineraries(String placeName, String placeHours, String placeAddress) {
         this.itinerary[0] = this.placeName;
