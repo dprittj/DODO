@@ -3,6 +3,8 @@ import { TokenStorageService } from '../../shared/services/token-storage.service
 import { Router } from '@angular/router';
 import { NgForm, FormsModule } from '@angular/forms';
 
+declare var weatherWidget: any;//imports weather widget script file
+
 @Component({
   selector: 'app-generate-dodo',
   templateUrl: './generate-dodo.component.html',
@@ -74,6 +76,8 @@ export class GenerateDodoComponent implements OnInit {
       this._route.navigateByUrl('/login');
     }
     this.currentUser = this.token.getUser();
+
+    new weatherWidget;
   
   }
 

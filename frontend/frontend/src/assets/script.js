@@ -96,12 +96,13 @@ let weather = {
       function success (data) {
         geocode.reverseGeocode(data.coords.latitude, data.coords.longitude);
       }
-      if (navigator.geolocation) {
+        console.log("here");
         navigator.geolocation.getCurrentPosition(success, console.error);
-      }
-      else {
-        weather.fetchWeather("Saint Louis");
-      }
+      
+        console.log("also here");
+        return weather.fetchWeather("Saint Louis");
+      
+    
     }
   };
 
