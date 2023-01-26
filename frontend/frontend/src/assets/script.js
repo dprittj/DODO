@@ -101,7 +101,7 @@ let weather = {
       }
       // else {
       
-        weather.fetchWeather("Denver");
+        weather.fetchWeather("Saint Louis");
       }
     
   };
