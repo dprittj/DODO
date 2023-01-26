@@ -12,5 +12,6 @@ Learning: Bulma, google location API, weather API
 
 (https://trello.com/b/mLsJi4pH/liftoff-project)
 
+Below is the presentation pdf for the Dodo/Liftoff Project:
 
-.
+.[Liftoff Presentation-Dodo.pdf](https://github.com/dprittj/DODO/files/10513778/Liftoff.Presentation-Dodo.pdf)
