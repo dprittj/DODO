@@ -5,5 +5,5 @@ Screenshots for project displayed below:
 ![buildnest_page](https://user-images.githubusercontent.com/108894195/214889623-bb322667-6dc0-4414-aa76-31704209e20d.JPG)
 ![mynest_page](https://user-images.githubusercontent.com/108894195/214889817-38ce7613-045c-4d64-806d-3f656c1eef7e.JPG)
 ![generatedodo_page](https://user-images.githubusercontent.com/108894195/214889836-536aea1b-1c38-4294-bfe8-68bf2b39677b.JPG)
-![itineraries_page](https://user-images.githubusercontent.com/108894195/214889656-775702ac-0bbc-4b30-ac82-be2fc65bc97c.JPG)
+![itinerary2_page](https://user-images.githubusercontent.com/108894195/214912305-fe0f9254-91cb-44c9-a030-33113df352de.JPG)
 ![submitpoi_page](https://user-images.githubusercontent.com/108894195/214889672-890cb96e-8287-4a30-bd63-26ae776ff0e9.JPG)
