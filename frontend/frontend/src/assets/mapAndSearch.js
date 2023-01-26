@@ -73,8 +73,8 @@ function runFindStuffMap() {
   console.log(radius);
   let priceRange = params.get('priceRange')
   console.log(priceRange);
-  let itineryItems = params.get('itineraryItems');
-  console.log(itineryItems);
+  let itineryNums = params.get('itineraryItems');
+  console.log(itineryNums);
 
   let vars = query.split('&');
   let service = new google.maps.places.PlacesService(map);
@@ -85,17 +85,19 @@ function runFindStuffMap() {
       let tagArray=[];
       let queryText;
       console.log(queryArray);
-      for(let x = 0; x < queryArray.length; x++) {
-        // console.log('one: ' + queryArray[x]);
-        for(let y = 0; y < translator[queryArray[x]].length; y++) {
-          // console.log('two: ' + translator[queryArray[x]][y]);
-          tagArray=tagArray.concat(translator[queryArray[x]][y]);
-          // console.log(tagArray);
-          
+      for(let z = 0; z<parseInt(itineryNums); z++){
+        for(let x = 0; x < queryArray.length; x++) {
+          // console.log('one: ' + queryArray[x]);
+          for(let y = 0; y < translator[queryArray[x]].length; y++) {
+            // console.log('two: ' + translator[queryArray[x]][y]);
+            tagArray=tagArray.concat(translator[queryArray[x]][y]);
+            // console.log(tagArray);
+            
+          }
         }
-      }
 
       queryText=tagArray[Math.floor(Math.random() * tagArray.length)];//grabs random tag
+    }
       // console.log(queryText);
       findStuffMap(queryText, radius, priceRange, service);
     }
