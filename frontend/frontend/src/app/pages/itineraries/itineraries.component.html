@@ -51,7 +51,7 @@
   *ngFor="let itinerary of itineraries; index as i" 
   link="i"
   [name]="itinerary.name" 
-  [businessHours]="itinerary.businessHours"
+  
   [address]="itinerary.address">
 </app-itinerary-card>
 </div>
@@ -64,9 +64,9 @@
           <div class="card-content">
           
               <div class="content">
-                <p>Business Name: </p>
-                <p>Business Hours: </p>
-                <p>Business Address: </p> 
+                <p class="bName">Business Name: </p>
+                <!-- <p class="bHours">Business Hours: </p> -->
+                <p class="bAddress">Business Address: </p> 
                 <!-- Tags can be added below:  -->
                 <!-- <a href="#">#food</a> <a href="#">#outdoors</a> -->
           
