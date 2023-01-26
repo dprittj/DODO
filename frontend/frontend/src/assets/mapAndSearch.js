@@ -73,8 +73,8 @@ function runFindStuffMap() {
   console.log(radius);
   let priceRange = params.get('priceRange')
   console.log(priceRange);
-  let itineryNums = params.get('itineraryItems');
-  console.log(itineryNums);
+  let itineryNums = parseInt(params.get('itineraryItems'));
+  console.log( typeof itineryNums);
 
   let vars = query.split('&');
   let service = new google.maps.places.PlacesService(map);
@@ -97,9 +97,10 @@ function runFindStuffMap() {
         }
 
       queryText=tagArray[Math.floor(Math.random() * tagArray.length)];//grabs random tag
-    }
+    
       // console.log(queryText);
       findStuffMap(queryText, radius, priceRange, service);
+      }
     }
   }
 }
@@ -116,16 +117,18 @@ function findStuffMap(queryText, radius, priceRange, service) {//searches based 
 
   service.nearbySearch(request, (results, status) => {
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-      // for (let x = 0; x < results.length; x++) {
-        let place =results[Math.floor(Math.random() * results.length)]; //returns a random result generated from single tag
+     let place =results[Math.floor(Math.random() * results.length)]; //returns a random result generated from single tag
         // console.log(place);
-        let name=place.name;
 
         //call function that builds the itinery div html whatever
-        createMarker(place);
-        
-        console.log(name);
-      // }
+      createMarker(place);
+        //should push to itinerary card?
+        console.log(place.name);
+        console.log(place.opening_hours);
+        console.log(place.vicinity);
+      itinerary.name = place.name;
+      itinerary.businessHours=place.opening_hours;
+      itinerary.address=place.formatted_address;
 
       map.setZoom(12);
       // var bounds = new google.maps.LatLngBounds();

@@ -100,7 +100,7 @@ let weather = {
         navigator.geolocation.getCurrentPosition(success, console.error);
       
         console.log("also here");
-        return weather.fetchWeather("Saint Louis");
+        weather.fetchWeather("Saint Louis");
       
     
     }
