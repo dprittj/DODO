@@ -85,7 +85,7 @@ function runFindStuffMap() {
       let tagArray=[];
       let queryText;
       console.log(queryArray);
-      for(let z = 0; z<parseInt(itineryNums); z++){
+      for(let z = 0; z<itineryNums; z++){
         for(let x = 0; x < queryArray.length; x++) {
           // console.log('one: ' + queryArray[x]);
           for(let y = 0; y < translator[queryArray[x]].length; y++) {
