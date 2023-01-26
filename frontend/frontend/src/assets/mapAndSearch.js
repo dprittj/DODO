@@ -1,3 +1,5 @@
+// import {Itineraries} from "../app/shared/models/itinerary.model";
+
 let map, infoWindow, service, pstn;
 
 function initMap() {
@@ -123,12 +125,16 @@ function findStuffMap(queryText, radius, priceRange, service) {//searches based 
         //call function that builds the itinery div html whatever
       createMarker(place);
         //should push to itinerary card?
-        console.log(place.name);
-        console.log(place.opening_hours);
-        console.log(place.vicinity);
-      itinerary.name = place.name;
-      itinerary.businessHours=place.opening_hours;
-      itinerary.address=place.formatted_address;
+        let name=place.name;
+        let businessHours=place.opening_hours;
+        console.log(businessHours);
+        let address= place.vicinity;
+        document.querySelector(".bName").innerText = "Business Name: " + name;
+        // document.querySelector(".bHours").innerText = "Business Hours: " + businessHours;
+        document.querySelector(".bAddress").innerText = "Business Address: " + address;
+      // itinerary.name = place.name;
+      // Itinerary.businessHours=place.opening_hours;
+      // Itinerary.address=place.formatted_address;
 
       map.setZoom(12);
       // var bounds = new google.maps.LatLngBounds();

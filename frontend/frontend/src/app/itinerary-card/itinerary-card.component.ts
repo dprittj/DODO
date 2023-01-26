@@ -9,8 +9,8 @@ export class ItineraryCardComponent implements OnInit {
 
   @Input('name')
   name!: string;
-  @Input('businessHours')
-  businessHours!: string;
+  // @Input('businessHours')
+  // businessHours!: any;
   @Input('address')
   address!: string;
 
