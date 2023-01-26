@@ -1,0 +1,65 @@
+
+Having had some trouble myself with accepting the json data of saved user interests into Java to save for persistence as it was previously written, it looks like we're going to move towards a model of data based on the link Victoria sent out last night which saves user-selected data into an array on the front end. Still, there are options moving forward...
+
+Three paths forward for user interests:
+    (1) Non-persistent data. This would remove persistence for user-selected interests as a 'profile' item, and moving all interests related activity over to the Generate Dodo view (where Nathan already has the Google API action happening from). To spin this, non-persistence in regards to interests allows the user to Fly By The Seat Of Their DODO (TM). We would not necessarily need to remove any work done from the profile view--though I can ABSOLUTELY empathize with working down a path that ends up on the editing floor!--maybe just put a "Coming soon in beta 0.2.1!" on the page for presentation? We want to show we still have goals!
+
+    (2) Removing the Add Additional Interests option from the user and only pulling their saved interests when generating a DODO. This reduces the extra work needed to put new interests into the google API along with the saved interests. This data would be persistent (I believe), however it leads to a UX conundrum: to alter interests for a new DODO they'd need to navigate BACK to the profile page and the navigate again to the Generate page...
+
+     (Unless we added a Generate DODO button from these interests to the Nest view, which pops-up or pulls those interests into a page that then only has the additional preferences[price, range, etc.]... If we do this, we potentially switch up our visual theme to a side-by-side map-left, options-right, and generated itinerary across both columns underneath? Let the humber of items, price, and range be dynamically changeable in this view, after pulling checked interests in? This whole one just came to me, so... Three and a Half ways forward...)
+
+    (3) Between (1) and (2): Save the users selected interests and auto-check boxes of any selected interests in the Add Additional Interests (perhaps reframing the element as a "Choose Interests to DODO"), giving the user both persistence AND the ability to Fly By The Seat Of Their DODO (TM). If we want to choose (2), then this is not a far cry since we're saving and pulling the data anyway. Upon generating/navigating away it could auto-save any checked boxes as the users' interests, thereby always having some default interests checked. (Hopefully this might be as easy as adding an if-clause to the API call, ie. API code pulls in saved interests, if-clause checks to see if any more or less are added and calls for them as well? It also looks like the new Array-saving feature is highly-dynamic, so again hopefully not too much additional work to pursue path 3 here).
+
+As far as persistence would work along with the new Array data, Victoria and I were trying to work out some pseudocoding to get the idea down right...
+
+Saving to and Pulling from back end (BE) database (DB):
+  --saving to:  1. Users check interests,
+                2. interests are saved in an array on the front end;
+                3. Like user data, the array is saved to BE (**within user object**), as:
+                4. Arrays of interest_ids (not auto; we would code the ids; only 15 of them).
+                5. In repository, each user_id will have associated with it a row/foreign key representing the interest_id == interestsIndex;
+
+             ex: user_id, interest_id                     user_id 23's userInterestArray = [3, 4, 9, 12];
+                    23          3                          while user_id 23's index[0] is 3
+                    23          4                           (representing Nature),
+                    23          9                            for every user, no matter the index value,
+                    23          12                            a 3 IN the array = Nature.
+                    37          1
+                    37          3
+                    37          14
+
+                 6. handler method would roughly be:
+                    --userInterestArray = interestRepo.findAllByUserId(##).toArray(); //returns users' selected interests as array?
+                            (However, our brains started to fog up trying to figure out how to pull just/particularly the interest_ids from the whole user data table...)
+
+                 7. Pushes array to front end (FE) since listed values are related to the coded array on the FE ie. (4) above.
+
+                 8. In FE, array is sent to checkbox loop function (if pursuing the 3rd interest-persistence path) and API.
+
+
+Regarding API place pulling and itinerary generation:
+    (Roughly)
+           Saved Interests + preferences (ie 5 interests + price and distance parameters; **# of items is sent to a reference variable for later!**
+                --> Google API
+                    --> API returns place_ids
+                        --> we put place_ids into an Array
+                            --> initialize an int variable and run math.random methods to get a number between 0 and placeIdArray.length
+                                --> random int = array[i]; that is, if the random number is 12, then the 1st item on the itinerary comes from the array at index [12]
+                                    --> refer back to the saved number of items variable from earlier, and add sequentially from the array to generate itinerary (ie. 5 items is an itinerary from array values [12], [13], [14], [15], [16]; numbers near array length would circle back around to [0] to continue, ie. [24], [25], [0], [1], [2])
+
+           **As this is our MVP/proof of concept, I'm also okay with (a) limiting the size of the place_id array to a max size as well as only giving the user the option of 1, 2, or 3 items on the itinerary; they can always generate a second one if they finish the first!
+
+
+
+
+
+
+                        6b. We have in the back, a hard-coded List of Maps:
+                                List<HashMap> AllInterests
+                        6c. Each HashMap is a { String key: Interest, List value: Tags } pair as a <String, List> type
+                                ex: { "Outdoors",  < amusement_park, park, zoo, landmark, natural_feature > }
+                        6d. Since (4) we can compare interest_ids (ie. '3'), with (4) to send interests (ie Outdoors) to the front; each loop through userInterestArray, loops against (4) and if value at [i] matches (nested-loop!)
+
+                                or: [3, 4, 9, 12]      arrayName.indexOf('3')
+
+

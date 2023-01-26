@@ -24,6 +24,7 @@ export class ItinerariesComponent implements OnInit {
   constructor(private _route: Router, private token: TokenStorageService, private itinerariesService: ItinerariesService) { }
 
   ngOnInit(): void {
+
     if(this.token.getToken()){
       this.isLoggedIn = true;
       this.roles = this.token.getUser().roles;
@@ -33,6 +34,7 @@ export class ItinerariesComponent implements OnInit {
     }
     this.currentUser = this.token.getUser();
     this.itineraries = this.itinerariesService.getAll();
+    // this.itinerariesService.createNewItinerary(name, businessHours, address);
 
     new weatherWidget;//runs weather widget on init
     new initMap; //returns map
@@ -41,5 +43,4 @@ export class ItinerariesComponent implements OnInit {
   }
 
 }
-
 

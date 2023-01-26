@@ -7,10 +7,7 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 
@@ -28,6 +25,12 @@ public class User extends IdAbstract {
 
     @NotBlank
     private String pwHash;
+
+    private HashMap<String, Boolean> interests;
+
+    @ManyToOne
+    @JoinColumn(name="itineraries_id")
+    private Itineraries itinerary;
 
     @ManyToMany(fetch =FetchType.LAZY)
     @JoinTable( name = "user_roles",
