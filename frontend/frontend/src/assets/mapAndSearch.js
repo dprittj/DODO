@@ -73,8 +73,8 @@ function runFindStuffMap() {
   console.log(radius);
   let priceRange = params.get('priceRange')
   console.log(priceRange);
-  let itineryNums = params.get('itineraryItems');
-  console.log(itineryNums);
+  let itineryNums = parseInt(params.get('itineraryItems'));
+  console.log( typeof itineryNums);
 
   let vars = query.split('&');
   let service = new google.maps.places.PlacesService(map);
@@ -97,9 +97,10 @@ function runFindStuffMap() {
         }
 
       queryText=tagArray[Math.floor(Math.random() * tagArray.length)];//grabs random tag
-    }
+    
       // console.log(queryText);
       findStuffMap(queryText, radius, priceRange, service);
+      }
     }
   }
 }
