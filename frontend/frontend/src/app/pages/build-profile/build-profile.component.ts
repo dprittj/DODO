@@ -50,45 +50,45 @@ export class BuildProfileComponent implements OnInit {
   
 
   buildProfile(): void {
-    const { 
-      music,
-      outdoors,
-      gaming,
-      nature,
-      art,
-      sports,
-      nightlife,
-      food,
-      history,
-      science_technology,
-      culture,
-      fashion,
-      books,
-      movies, 
-      health_wellness 
-    } = this.form;
-    console.log(this.form);
-    this._service.saveInterests(music,
-      outdoors,
-      gaming,
-      nature,
-      art,
-      sports,
-      nightlife,
-      food,
-      history,
-      science_technology,
-      culture,
-      fashion,
-      books,
-      movies, 
-      health_wellness).subscribe(
-      data=>{
+    // const { 
+    //   music,
+    //   outdoors,
+    //   gaming,
+    //   nature,
+    //   art,
+    //   sports,
+    //   nightlife,
+    //   food,
+    //   history,
+    //   science_technology,
+    //   culture,
+    //   fashion,
+    //   books,
+    //   movies, 
+    //   health_wellness 
+    // } = this.form;
+    // console.log(this.form);
+    // this._service.saveInterests(music,
+    //   outdoors,
+    //   gaming,
+    //   nature,
+    //   art,
+    //   sports,
+    //   nightlife,
+    //   food,
+    //   history,
+    //   science_technology,
+    //   culture,
+    //   fashion,
+    //   books,
+    //   movies, 
+    //   health_wellness).subscribe(
+    //   data=>{
         console.log("Interests Saved");
-        console.log(data);
-        this._route.navigateByUrl('mynest');
-      }
-    );
+        // console.log(data);
+        this._route.navigateByUrl('/mynest');
+      // }
+    // );
 
     
   }

@@ -1,6 +1,12 @@
 import { getAllLifecycleHooks } from '@angular/compiler/src/lifecycle_reflector';
 import { Injectable } from '@angular/core';
 import { Itinerary } from '../models/itinerary.model'; 
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type' : 'application/json'})
+}
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +15,9 @@ export class ItinerariesService {
 
   itineraries: Itinerary[] = new Array<Itinerary>();
 
-  constructor() { }
+  API = 'http://localhost:8080/api/';
+
+  constructor(private _http: HttpClient) { }
 
   getAll() {
     return this.itineraries;
@@ -34,4 +42,12 @@ export class ItinerariesService {
   delete(id: number) {
     this.itineraries.splice(id, 1);
   }
+  //
+createNewItinerary(name: String, businessHours: String, address: String,): Observable<any>{
+  return this._http.post(this.API + "itineraries", {
+    name, 
+    businessHours,
+    address,
+  }, httpOptions);
+}
 }
